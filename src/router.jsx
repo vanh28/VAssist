@@ -9,15 +9,18 @@ import Login from "./pages/Login";
 import Layout from "./pages/Layout";
 import UserSelect from "./pages/UserSelect";
 import Protected from "./pages/Protected";
+import Homepage from "./pages/Homepage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="user-select" element={<UserSelect />} />
-        <Route path="login" element={<Login />} />
-        <Route path="protected" element={<Protected />} />
+        <Route path="/user-select" element={<UserSelect />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home-page" element={<Homepage />} />
+        <Route path="/protected" element={<Protected />} />     
+
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </>

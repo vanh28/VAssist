@@ -5,6 +5,11 @@ function Protected() {
   const [account, setAccount] = useState(null);
   const navigate = useNavigate();
 
+  function navigateToHomepage(e) {
+    e.preventDefault()
+    navigate("/home-page")
+  }
+
   useEffect(() => {
     if (!localStorage.getItem("faceAuth")) {
       navigate("/login");
@@ -30,10 +35,7 @@ function Protected() {
             src={
               account?.type === "CUSTOM"
                 ? account.picture
-                : // : import.meta.env.DEV
-                  // ? `/temp-accounts/${account.picture}`
-                  // : `/react-face-auth/temp-accounts/${account.picture}`
-                  `/temp-accounts/${account.picture}`
+                : `/temp-accounts/${account.picture}`
             }
             alt={account.fullName}
           />
@@ -45,10 +47,11 @@ function Protected() {
           >
             {account?.fullName}
           </h1>
+          <button onClick={navigateToHomepage}>Go to Homepage</button>
           <div
             onClick={() => {
               localStorage.removeItem("faceAuth");
-              navigate("/");
+              //navigate("/");
             }}
             className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-red-400 to-red-600"
           >
@@ -68,6 +71,7 @@ function Protected() {
               />
             </svg>
           </div>
+          
         </div>
       </div>
     </div>
