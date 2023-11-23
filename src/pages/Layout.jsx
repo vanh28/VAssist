@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import Footer from "../components/Footer";
+
 
 const whiteList = ["/protected", "/home-page","/news"];
 
@@ -19,7 +19,6 @@ function Layout() {
   return (
     <div className="h-screen flex flex-col justify-between">
       <Outlet className="grow" />
-      <Footer />
     </div>
   );
 }

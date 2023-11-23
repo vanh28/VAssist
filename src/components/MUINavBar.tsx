@@ -16,9 +16,9 @@ export const MUINavBar = () => {
     }
     return (
         
-        <AppBar position='static'>
+        <AppBar position='static' sx={{ backgroundColor: '#1e3a8a' }}>
             <Toolbar>
-                <IconButton size='large' edge='start' color='inherit' aria-label='logo'>
+                <IconButton size='large' edge='start' color='bg-blue-900' aria-label='logo'>
                 <img src={Logo} alt='Logo' style={{ width: '40px', height: '40px', marginRight: '10px' }} />
                 </IconButton>   
                 <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
