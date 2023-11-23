@@ -10,7 +10,7 @@ import Layout from "./pages/Layout";
 import UserSelect from "./pages/UserSelect";
 import Protected from "./pages/Protected";
 import Homepage from "./pages/Homepage";
-
+import  News  from "./pages/News";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
         <Route path="/login" element={<Login />} />
         <Route path="/home-page" element={<Homepage />} />
         <Route path="/protected" element={<Protected />} />     
-
+        <Route path="/news" element={<News />} />  
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </>

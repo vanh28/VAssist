@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 
-const whiteList = ["/protected", "/home-page"];
+const whiteList = ["/protected", "/home-page","/news"];
 
 function Layout() {
   const location = useLocation();
