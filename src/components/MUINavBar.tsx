@@ -21,7 +21,7 @@ export const MUINavBar = () => {
 
     function navigateToProfile(e) {
         e.preventDefault()
-        navigate("/profile")
+        navigate("/protected")
       }
     return (
         
