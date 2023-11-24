@@ -13,9 +13,8 @@ function News() {
   return (
     <>
     <MUINavBar />
-    <Container maxWidth="full" style={{ backgroundColor: 'white' }}>
+    <Container maxWidth="full" maxHeight="full" style={{backgroundColor: "#f6f6f6"}}>
     <div className='News'>
-      
       <Newspaper />
     </div>
     </Container>

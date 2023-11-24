@@ -12,18 +12,15 @@
   }
   
   .all__news {
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 40px;
+    display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(360px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-gap: 2rem;
   }
   
-  .news {
-    max-width: 700px;
-    padding: 30px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    background-color: rgb(29 78 216);
+  .News {
+    padding-top: 20px;
   }
   
   .news__title {

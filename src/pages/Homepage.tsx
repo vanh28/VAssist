@@ -10,7 +10,6 @@ function Homepage() {
   return (
     <div className='App'>
       <MUINavBar />
-     
       Homepage
     </div>
   )
