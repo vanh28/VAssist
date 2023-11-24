@@ -10,7 +10,8 @@ import Layout from "./pages/Layout";
 import UserSelect from "./pages/UserSelect";
 import Protected from "./pages/Protected";
 import Homepage from "./pages/Homepage";
-import  News  from "./pages/News";
+import News  from "./pages/News";
+import Profile from "./pages/Profile";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
         <Route path="/home-page" element={<Homepage />} />
         <Route path="/protected" element={<Protected />} />     
         <Route path="/news" element={<News />} />  
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </>
