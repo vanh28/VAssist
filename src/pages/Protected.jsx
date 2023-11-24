@@ -40,20 +40,20 @@ function Protected() {
             alt={account.fullName}
           />
           <h1
-            className="block text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-800"
+            className="block text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-black"
             style={{
               lineHeight: "1.5",
             }}
           >
             {account?.fullName}
           </h1>
-          <button onClick={navigateToHomepage}>Go to Homepage</button>
+          <button className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-900" onClick={navigateToHomepage}><span className="text-white">Homepage</span></button>
           <div
             onClick={() => {
               localStorage.removeItem("faceAuth");
               //navigate("/");
             }}
-            className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-red-400 to-red-600"
+            className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-900"
           >
             <span className="text-white">Log Out</span>
             <svg
