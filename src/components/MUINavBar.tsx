@@ -14,6 +14,19 @@ export const MUINavBar = () => {
       e.preventDefault()
       navigate("/news")
     }
+    function navigateToHome(e) {
+        e.preventDefault()
+        navigate("/home-page")
+      }
+
+    function navigateToProfile(e) {
+        e.preventDefault()
+        navigate("/profile")
+      }
+      function navigateToMusic(e) {
+        e.preventDefault()
+        navigate("/Music")
+      }
     return (
         
         <AppBar position='static' sx={{ backgroundColor: '#1e3a8a' }}>
@@ -22,13 +35,14 @@ export const MUINavBar = () => {
                 <img src={Logo} alt='Logo' style={{ width: '40px', height: '40px', marginRight: '10px' }} />
                 </IconButton>   
                 <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-                    Home
+                <Button color='inherit' onClick={navigateToHome}>Home</Button>
                 </Typography>
                 <Stack direction='row' spacing={2}>
                     <Button color='inherit' onClick={navigateToNews}>News</Button>
                     <Button color='inherit'>Call</Button>
-                    <Button color='inherit'>Voice</Button>
+                    <Button color='inherit'>Music</Button>
                     <Button color='inherit'>Contact</Button>
+                    <Button color='inherit' onClick={navigateToProfile}>Profile</Button>
                 </Stack>
             </Toolbar>
         </AppBar>
