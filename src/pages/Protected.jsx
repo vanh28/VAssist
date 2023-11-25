@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { MUINavBar } from "../components/MUINavBar";
+import SpeechReg from "../components/SpeechReg";
 
 function Protected() {
   const [account, setAccount] = useState(null);
@@ -24,7 +26,11 @@ function Protected() {
   }
 
   return (
+    <div>
+    <MUINavBar />
+    <SpeechReg />
     <div className="bg-white pt-40 md:pt-60">
+      
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-12">
           Bạn đã đăng nhập thành công!
@@ -74,6 +80,7 @@ function Protected() {
           
         </div>
       </div>
+    </div>
     </div>
   );
 }
