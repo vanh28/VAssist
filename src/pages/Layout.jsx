@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 
-const whiteList = ["/protected", "/home-page","/news","/profile"];
+const whiteList = ["/protected", "/home-page","/news","/profile", "/Videocall", "/Music"];
 
 function Layout() {
   const location = useLocation();
