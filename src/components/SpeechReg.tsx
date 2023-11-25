@@ -67,10 +67,12 @@ import SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognitio
 import './SpeechReg.css'; // Import the CSS file
 
 const SpeechReg = () => {
+
   const navigate = useNavigate();
   const [clickCount, setClickCount] = useState(0);
   const [showComponent, setShowComponent] = useState(false);
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  
   const commands = [
     {
       command: ["Go To *"],
@@ -95,6 +97,7 @@ const SpeechReg = () => {
   }
 
   const handleRightClick = () => {
+    
     setClickCount((prevCount) => prevCount + 1);
   };
 
@@ -111,11 +114,20 @@ const SpeechReg = () => {
   }, [clickCount]);
 
   useEffect(() => {
+    if (clickCount === 2) {
+      disableRightClick();
+    }
     if (clickCount === 3) {
       setShowComponent(true);
       setClickCount(0);
+      disableRightClick();
     }
   }, [clickCount]);
+  const disableRightClick = () => {
+    window.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
+  };
   let string = "";
 
   if (showComponent) {
