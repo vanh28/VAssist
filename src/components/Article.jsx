@@ -43,7 +43,12 @@ function Article({ article }) {
     setIsPlaying(true);
     // Play the audio here
   };
-
+  
+  const handleAudio = () => { 
+    let utterance = new SpeechSynthesisUtterance(article.title);
+    utterance.lang = 'vi-VN';
+    speechSynthesis.speak(utterance);
+  }
   return (
     <div className="news__card">
       <CardMedia
@@ -55,14 +60,13 @@ function Article({ article }) {
       <h2 style={{ fontSize: "1.6rem", fontFamily: "'Source Sans Pro', sans-serif", display: 'block', marginTop: '20px', marginBottom: '20px', fontWeight: 'bold' }}>{article.title} </h2>
       <p></p>
       <p>{article.description}</p>
-      <IconButton aria-label="play/pause" onClick={handlePlayAudio}>
+      {/* <IconButton tabindex="1" aria-label="play/pause" onClick={handlePlayAudio}  onFocus={handleAudio}>
         <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-      </IconButton>
-      {isPlaying && (
-        <audio src={article.audioUrl} autoPlay controls>
+      </IconButton> */}
+      
+        <audio onFocus={handleAudio} src={article.audioUrl} autoPlay controls>
           Your browser does not support the audio element.
         </audio>
-      )}
     </div>
   );
 }
