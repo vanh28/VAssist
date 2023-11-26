@@ -12,7 +12,7 @@ const VolumeSetting = () => {
   const handleLeftClick = () => {
     setClickCount((prevCount) => prevCount + 1);
     clearTimeout(timer); // Reset timer khi có sự kiện click mới
-    setTimer(setTimeout(() => setClickCount(0), 1000)); // Reset sau 2 giây nếu không có sự kiện click mới
+    setTimer(setTimeout(() => setClickCount(0), 500)); // Reset sau 2 giây nếu không có sự kiện click mới
   };
 
   const handleKeyPress = useCallback(

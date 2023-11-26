@@ -5,6 +5,7 @@ import axios from "axios";
 import {NewsContextProvider } from "../NewsContext";
 import Newspaper from "../components/Newspaper";
 import Container from '@mui/material/Container';
+import SpeechReg from '../components/SpeechReg';
 
 
 
@@ -23,7 +24,7 @@ function Videocall() {
   return (
     <div className='Videocall'>
       <MUINavBar />
-      <SpeechReg />
+      <SpeechReg/>
       VideoCall
     </div>
   )

@@ -22,7 +22,7 @@ export const MUINavBar = () => {
     function navigateToProfile(e) {
         e.preventDefault()
         navigate("/protected")
-<<<<<<<< HEAD:src/components/MUINavBar.jsx
+
       }
     function navigateToCall(e) {
       e.preventDefault()
@@ -32,14 +32,14 @@ export const MUINavBar = () => {
       e.preventDefault()
       navigate("/Music")
     }
-========
-      }
+
+      
       function navigateToMusic(e) {
         e.preventDefault()
         navigate("/Music")
       }
     
->>>>>>>> HoangVietAnh:src/components/MUINavBar.tsx
+
     return (
         
         <AppBar position='static' sx={{ backgroundColor: '#1e3a8a' }}>
@@ -48,7 +48,7 @@ export const MUINavBar = () => {
                 <img src={Logo} alt='Logo' style={{ width: '40px', height: '40px', marginRight: '10px' }} />
                 </IconButton>   
                 <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-<<<<<<<< HEAD:src/components/MUINavBar.jsx
+
                 <Button tabIndex={"-1"} color='inherit' onClick={navigateToHome}>Home</Button>
                 </Typography>
                 <Stack direction='row' spacing={2}>
@@ -57,10 +57,10 @@ export const MUINavBar = () => {
                     <Button tabIndex={"-1"} color='inherit' onClick={navigateToMusic}>Music</Button>
                     <Button tabIndex={"-1"} color='inherit'>Contact</Button>
                     <Button tabIndex={"-1"} color='inherit' onClick={navigateToProfile}>Profile</Button>
-========
-                <Button color='inherit' onClick={navigateToHome}>Home</Button>
+
+         
                 
-                </Typography>
+                {/* </Typography>
                 <Stack direction='row' spacing={2}>
                     <Button color='inherit' onClick={navigateToNews}>News</Button>
                     <Button color='inherit'>Call</Button>
@@ -68,8 +68,8 @@ export const MUINavBar = () => {
                     <Button color='inherit'>Music</Button>
                     <Button color='inherit'>Contact</Button>
                     
-                    <Button color='inherit' onClick={navigateToProfile}>Profile</Button>
->>>>>>>> HoangVietAnh:src/components/MUINavBar.tsx
+                    <Button color='inherit' onClick={navigateToProfile}>Profile</Button> */}
+
                 </Stack>
             </Toolbar>
         </AppBar>

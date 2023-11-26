@@ -5,6 +5,7 @@ import '../App.css'
 import React, { useState } from 'react';
 import SpeechReg from '../components/SpeechReg';
 import { useEffect } from 'react';
+import VolumeSetting from '../components/Volume';
 
 function Homepage() {
   const handleAudio = () => { 
