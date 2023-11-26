@@ -4,6 +4,17 @@ import { MUINavBar } from "../components/MUINavBar";
 import SpeechReg from "../components/SpeechReg";
 
 function Protected() {
+  const handleAudio = () => { 
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("This is Profile.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   const [account, setAccount] = useState(null);
   const navigate = useNavigate();
 
