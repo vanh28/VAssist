@@ -5,6 +5,17 @@ import AuthFace from "../assets/images/auth-face.svg";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
+  const handleAudio = () => { 
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("Waiting for uploading the models.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   const [tempAccount, setTempAccount] = useState("");
   const [localUserStream, setLocalUserStream] = useState(null);
   const [modelsLoaded, setModelsLoaded] = useState(false);

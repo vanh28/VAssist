@@ -1,6 +1,6 @@
 
 
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import "../pages/News.css"
 import Article from "./Article";
 import Grid from '@material-ui/core/Grid';
@@ -8,7 +8,7 @@ function Newspaper(props) {
   //mock data: title, description, author, source, url, urlToImage, content
   const articles = [
     {
-      title: "Đội bóng mạnh số 1 thế giới",
+      title: "Manchester United is the best football team in the wall",
       description: "Niềm tự hào của các cổ động viên thành Man - Manchester United. MU dành cú ăn ba lịch sử trong 11 năm. Sau chien thang truoc  mu Co dong vien da thuc su that vong voi su tro lai nay",
       author: "John Doe",
       source: "The News Times",

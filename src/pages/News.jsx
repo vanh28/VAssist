@@ -6,15 +6,24 @@ import Newspaper from "../components/Newspaper";
 import Container from '@mui/material/Container';
 import './News.css'
 import SpeechReg from '../components/SpeechReg';
-import VolumeSetting from '../components/Volume';
 
 
 function News() {
+  const handleAudio = () => { 
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("This is News.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   return (
     <>
     <MUINavBar />
     <SpeechReg />
-    <VolumeSetting />
     <Container maxWidth="full" maxHeight="full" style={{backgroundColor: "#f6f6f6"}}>
     <div className='News'>
       <Newspaper />

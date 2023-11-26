@@ -82,11 +82,13 @@ const SpeechReg = () => {
 
   const { transcript } = useSpeechRecognition({ commands });
   const [redirectUrl, setRedirectUrl] = useState('');
-  const pages = ['home', 'news', 'profile'];
+  const pages = ['home', 'news', 'profile','call','music'];
   const urls = {
     home: "/home-page",
     news: "/news",
     profile: "/protected",
+    call: "/Videocall",
+    music: "/music"
   };
 
   function removeDotAtEnd(sentence) {
