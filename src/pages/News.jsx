@@ -11,6 +11,17 @@ import SpeechReg from '../components/SpeechReg';
 
 
 function News() {
+  const handleAudio = () => { 
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("This is News.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   return (
     <>
     <MUINavBar />
