@@ -12,9 +12,9 @@ function Layout() {
     return <Navigate to="/" />;
   }
 
-  // if (account && !whiteList.includes(location.pathname)) {
-  //   return <Navigate to="/protected" />;
-  // }
+  if (account && !whiteList.includes(location.pathname)) {
+    return <Navigate to="/protected" />;
+  }
 
   return (
     <div className="h-screen flex flex-col justify-between">
