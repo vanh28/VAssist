@@ -1,7 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useEffect } from 'react';
 function Home() {
+  const handleAudio = () => { 
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("Welcome to Homepage.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   return (
     <div className="bg-white py-40 md:pt-60 md:pb-24">
       <div className="h-full mx-auto max-w-7xl">
