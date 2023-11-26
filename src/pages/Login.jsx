@@ -7,7 +7,7 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 function Login() {
   const handleAudio = () => { 
     if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("Choose an user to log in.");
+      let utterance = new SpeechSynthesisUtterance("Waiting for uploading the models.");
       utterance.lang = 'vi-VN';
       speechSynthesis.speak(utterance);
     }

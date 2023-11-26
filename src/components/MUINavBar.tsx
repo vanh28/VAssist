@@ -21,20 +21,13 @@ export const MUINavBar = () => {
 
     function navigateToProfile(e) {
         e.preventDefault()
-<<<<<<< Updated upstream
-        navigate("/profile")
-=======
         navigate("/protected")
->>>>>>> Stashed changes
       }
       function navigateToMusic(e) {
         e.preventDefault()
         navigate("/Music")
       }
-<<<<<<< Updated upstream
-=======
     
->>>>>>> Stashed changes
     return (
         
         <AppBar position='static' sx={{ backgroundColor: '#1e3a8a' }}>
@@ -44,23 +37,15 @@ export const MUINavBar = () => {
                 </IconButton>   
                 <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
                 <Button color='inherit' onClick={navigateToHome}>Home</Button>
-<<<<<<< Updated upstream
-=======
                 
->>>>>>> Stashed changes
                 </Typography>
                 <Stack direction='row' spacing={2}>
                     <Button color='inherit' onClick={navigateToNews}>News</Button>
                     <Button color='inherit'>Call</Button>
-<<<<<<< Updated upstream
-                    <Button color='inherit'>Music</Button>
-                    <Button color='inherit'>Contact</Button>
-=======
                     
                     <Button color='inherit'>Music</Button>
                     <Button color='inherit'>Contact</Button>
                     
->>>>>>> Stashed changes
                     <Button color='inherit' onClick={navigateToProfile}>Profile</Button>
                 </Stack>
             </Toolbar>
