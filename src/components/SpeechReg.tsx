@@ -143,14 +143,17 @@ const SpeechReg = () => {
       
     }
   }
-
+  const handleSaveClick = () => {
+    setShowComponent(false); // Ẩn component khi nút "Save" được nhấn
+  };
 
   return (
     <>
       {showComponent && (
         <div className="card">
           <p id="transcript">Transcript: {transcript}</p>
-          <button onClick={() => SpeechRecognition.startListening()}> Start</button>
+          <p><button onClick={() => SpeechRecognition.startListening()}> Start</button> </p>
+          <button  onClick={handleSaveClick}> Close</button>
         </div>
       )}
       {shouldRedirect && navigate(urls[string])}
