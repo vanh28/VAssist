@@ -12,8 +12,8 @@ import Protected from "./pages/Protected";
 import Homepage from "./pages/Homepage";
 import News  from "./pages/News";
 import Profile from "./pages/Profile";
-import Videocall from "./pages/Videocall";
 import Music from "./pages/Music";
+import Videocall from "./pages/Videocall";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -23,9 +23,9 @@ const router = createBrowserRouter(
         <Route path="/login" element={<Login />} />
         <Route path="/home-page" element={<Homepage />} />
         <Route path="/protected" element={<Protected />} />     
-        <Route path="/news" element={<News />} /> 
-        <Route path="/Videocall" element={<Videocall />} /> 
-        <Route path="/Music" element={<Music  />} />
+        <Route path="/news" element={<News />} />  
+        <Route path="/Music" element={<Music />} />
+        <Route path="/Videocall" element={<Videocall />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
