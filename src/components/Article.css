@@ -5,7 +5,7 @@
     padding: 20px;
     width: 470.8px;
     height: 500.05px;
-    border-radius: 25px;
+    border-radius: 20px;
     border-color: #080808;
     --webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
@@ -15,6 +15,7 @@
     -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.6), 0 3px 3px rgba(0, 0, 0, 0.7);
             box-shadow: 0 3px 3px rgba(0, 0, 0, 0.6), 0 3px 3px rgba(0, 0, 0, 0.7);
   }
+  
   h2 {
     font-size: 1.6rem;
     display: block;
