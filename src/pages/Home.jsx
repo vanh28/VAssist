@@ -7,12 +7,14 @@ function Home() {
       <div className="h-full mx-auto max-w-7xl">
         <div className="text-center mb-24">
           <h1 className="leading-3 translate-y-[-5px] mt-12 block  text-5xl text-center tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900">
-            Mạng xã hội 
+            VAssist
           </h1>
           <p className="mt-7 text-md text-gray-600 max-w-3xl mx-4 md:mx-16 lg:mx-auto">
-            Mạng xã hội là một ứng dụng web được phát triển để hỗ trợ người suy giảm thị lực và người khiếm thị. 
-            Mạng xã hội giúp những ngưới suy giảm thị lực và người khiếm thị có thể đọc báo, trò chuyện với nhau, 
-            chia sẻ những trải nghiệm của họ trong cuộc sống giúp họ có nhiều động lực sống
+            VAssist là một ứng dụng web được phát triển để hỗ trợ người suy giảm
+            thị lực và người khiếm thị. VAssist giúp những ngưới suy giảm thị
+            lực và người khiếm thị có thể nghe đọc báo, nghe radio, kết nối trò
+            chuyện với nhau, chia sẻ những trải nghiệm của họ trong cuộc sống
+            giúp họ có nhiều động lực sống
           </p>
           <Link
             to={"/user-select"}
