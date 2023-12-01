@@ -189,6 +189,27 @@ function Login() {
     );
   }
 
+  const handleVoiceLoadModel = () => { 
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("Model load Successful.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
+  const handleVoiceOnFocus = () => { 
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("Press enter to Face recognition.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
+  const [isSpeaked, setIsSpeaked] = useState(false);
+  if (modelsLoaded ){
+    if (!isSpeaked){
+    handleVoiceLoadModel();
+    setIsSpeaked(true);
+    }
+  }
   return (
     <div className="h-full flex flex-col items-center justify-center gap-[24px] max-w-[720px] mx-auto">
       {!localUserStream && !modelsLoaded && (
@@ -200,7 +221,7 @@ function Login() {
         </h2>
       )}
       {!localUserStream && modelsLoaded && (
-        <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl" onFocus={handleVoiceOnFocus}>
           <span className="block text-blue-900 mt-2">
             Nhận diện khuôn mặt để đăng nhập
           </span>
@@ -260,6 +281,7 @@ function Login() {
                   onClick={getLocalUserVideo}
                   type="button"
                   className="flex justify-center items-center w-full py-2.5 px-5 mr-2 text-sm font-medium text-white bg-blue-900 hover:bg-blue-900 rounded-lg border border-gray-200 inline-flex items-center"
+                  onFocus={handleVoiceOnFocus}
                 >
                   Nhận diện khuôn mặt
                 </button>

@@ -12,7 +12,7 @@ import { NavBarNews } from '../components/NavBarNews';
 function News() {
   const handleAudio = () => { 
     if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is News.");
+      let utterance = new SpeechSynthesisUtterance("This is News for climate.");
       utterance.lang = 'vi-VN';
       speechSynthesis.speak(utterance);
     }
