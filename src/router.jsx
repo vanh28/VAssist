@@ -17,7 +17,7 @@ import Videocall from "./pages/Videocall";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />}>
+      {/* <Route path="/" element={<Layout />}> */}
         <Route path="/" element={<Home />} />
         <Route path="/user-select" element={<UserSelect />} />
         <Route path="/login" element={<Login />} />
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
         <Route path="/Videocall" element={<Videocall />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" />} />
-      </Route>
+      {/* </Route> */}
     </>
   ),
   // { basename: import.meta.env.DEV ? "/" : "/react-face-auth/" }
