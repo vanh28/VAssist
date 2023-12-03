@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import User from "../components/User";
 import { RadioGroup } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 const accounts = [
   {
     id: "374ed1e4-481b-4074-a26e-6137657c6e35",
@@ -22,13 +22,13 @@ const accounts = [
 ];
 
 function UserSelect() {
-  const handleAudio = () => { 
+  const handleAudio = () => {
     if (!speechSynthesis.speaking) {
       let utterance = new SpeechSynthesisUtterance("Choose an user to log in.");
-      utterance.lang = 'vi-VN';
+      utterance.lang = "vi-VN";
       speechSynthesis.speak(utterance);
     }
-  }
+  };
 
   useEffect(() => {
     handleAudio();
@@ -130,17 +130,16 @@ function UserSelect() {
                     let file = files[0];
                     let name = file.name;
                     let suffixArr = name.split("."),
-                      suffix = suffixArr[suffixArr.length - 1];
-                    
+                      suffix = suffixArr[suffixArr.length - 2];
 
                     const base64 = await convertBase64(file);
 
                     const user = {
                       id: "custom",
-                      fullName: name,
+                      fullName: suffix,
                       type: "CUSTOM",
                       picture: base64,
-                    }
+                    };
                     setCustomUser(user);
                     setSelected(user);
                   }}
