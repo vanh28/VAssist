@@ -1,18 +1,31 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './SpeechReg.css';
+import song from '../assets/song.mp3';
 
 const VolumeSetting = () => {
   const [showComponentVolume, setShowComponent] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const [timer, setTimer] = useState(null);
+
   const [isEnterPressed, setIsEnterPressed] = useState(false);
+  const [volume, setVolume] = useState(() => {
+    const savedVolume = localStorage.getItem('volume');
+    return savedVolume !== null ? parseInt(savedVolume, 10) : 50;
+  });
 
   const handleLeftClick = () => {
     setClickCount((prevCount) => prevCount + 1);
-    clearTimeout(timer); // Reset timer khi có sự kiện click mới
-    setTimer(setTimeout(() => setClickCount(0), 500)); // Reset sau 2 giây nếu không có sự kiện click mới
+    clearTimeout(timer);
+    setTimer(setTimeout(() => setClickCount(0), 500));
+  };
+
+  const handleVolumeChange = (event) => {
+    const newVolume = parseInt(event.target.value, 10);
+    setVolume(newVolume);
+    localStorage.setItem('volume', newVolume.toString());
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100; // Update audio volume if the audio element exists
+    }
   };
 
   const handleKeyPress = useCallback(
@@ -36,7 +49,7 @@ const VolumeSetting = () => {
       window.removeEventListener('click', leftClickHandler);
       window.removeEventListener('keypress', handleKeyPress);
     };
-  }, [clickCount, timer, handleKeyPress]);
+  }, [handleKeyPress]);
 
   useEffect(() => {
     if (clickCount === 3) {
@@ -53,15 +66,28 @@ const VolumeSetting = () => {
   }, [isEnterPressed, showComponentVolume]);
 
   const handleSaveClick = () => {
-    setShowComponent(false); // Ẩn component khi nút "Save" được nhấn
+    setShowComponent(false);
   };
+
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (showComponentVolume && audioRef.current) {
+      audioRef.current.volume = volume / 100; // Update audio volume when component is shown
+    }
+  }, [showComponentVolume, volume]);
 
   return (
     <>
       {showComponentVolume && (
         <div className="card">
-          <p>Volume</p>
           <button onClick={handleSaveClick}>Save</button>
+          <input type="range" min={0} max={100} value={volume} onChange={handleVolumeChange} />
+          <p>Volume: {volume}</p>
+          <audio autoPlay ref={audioRef}>
+            <source src={song} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
         </div>
       )}
     </>
