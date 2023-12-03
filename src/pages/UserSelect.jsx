@@ -130,14 +130,14 @@ function UserSelect() {
                     let file = files[0];
                     let name = file.name;
                     let suffixArr = name.split("."),
-                      suffix = suffixArr[suffixArr.length - 1];
+                    suffix = suffixArr[suffixArr.length - 2];
                     
 
                     const base64 = await convertBase64(file);
 
                     const user = {
                       id: "custom",
-                      fullName: name,
+                      fullName: suffix,
                       type: "CUSTOM",
                       picture: base64,
                     }
