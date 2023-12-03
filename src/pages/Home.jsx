@@ -8,10 +8,17 @@ function Home() {
       utterance.lang = "vi-VN";
       speechSynthesis.speak(utterance);
     }
-  };
-
+  }
+  const handleLoginVoice = () => {
+    if (!speechSynthesis.speaking) {
+      let utterance = new SpeechSynthesisUtterance("Press Enter to login.");
+      utterance.lang = 'vi-VN';
+      speechSynthesis.speak(utterance);
+    }
+  }
   useEffect(() => {
     handleAudio();
+    handleLoginVoice();
   }, []);
   return (
     <div className="bg-white py-40 md:pt-60 md:pb-24">
@@ -27,9 +34,10 @@ function Home() {
             chuyện với nhau, chia sẻ những trải nghiệm của họ trong cuộc sống
             giúp họ có nhiều động lực sống
           </p>
-          <Link
+          <Link 
             to={"/user-select"}
             className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-900"
+            onFocus={handleLoginVoice}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +58,7 @@ function Home() {
                 d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
               />
             </svg>
-            <span className="text-white text-3xl">Đăng nhập</span>
+            <span className="text-white text-3xl" >Đăng nhập</span>
           </Link>
         </div>
       </div>
