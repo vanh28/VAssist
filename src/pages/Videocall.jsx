@@ -1,25 +1,30 @@
-import { MUINavBar } from '../components/MUINavBar'
+import { MUINavBar } from "../components/MUINavBar";
+
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import Container from '@mui/material/Container';
-import SpeechReg from '../components/SpeechReg';
-import { VideoRoom } from '../components/VideoRomm';
+import { NewsContextProvider } from "../NewsContext";
+import Newspaper from "../components/Newspaper";
+import Container from "@mui/material/Container";
+import SpeechReg from "../components/SpeechReg";
+import { VideoRoom } from "../components/VideoRomm";
 
 function Videocall() {
-  const handleAudio = () => { 
+  const handleAudio = () => {
     if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is a page for calling.");
-      utterance.lang = 'vi-VN';
+      let utterance = new SpeechSynthesisUtterance(
+        "This is a page for calling."
+      );
+      utterance.lang = "vi-VN";
       speechSynthesis.speak(utterance);
     }
-  }
+  };
 
   useEffect(() => {
     handleAudio();
   }, []);
   const [joined, setJoined] = useState(false);
   return (
-    <div className='Videocall'>
+    <div className="Videocall">
       <MUINavBar />
       <SpeechReg />
       <div className='call'>
@@ -39,7 +44,7 @@ function Videocall() {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Videocall
+export default Videocall;

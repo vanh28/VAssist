@@ -75,20 +75,20 @@ const SpeechReg = () => {
   
   const commands = [
     {
-      command: ["đi đến *"],
+      command: ["Go To *"],
       callback: (redirectPage) => setRedirectUrl(redirectPage),
     },
   ];
 
   const { transcript } = useSpeechRecognition({ commands });
   const [redirectUrl, setRedirectUrl] = useState('');
-  const pages = ['trang chủ', 'tin tức', 'thông tin','gọi','nghe nhạc'];
+  const pages = ['home', 'news', 'profile','call','music'];
   const urls = {
-    "trang chủ": "/home-page",
-    "tin tức": "/news",
-    "thông tin": "/protected",
-    "gọi": "/Videocall",
-    "nghe nhạc": "/music"
+    home: "/home-page",
+    news: "/news",
+    profile: "/protected",
+    call: "/Videocall",
+    music: "/music"
   };
 
   function removeDotAtEnd(sentence) {

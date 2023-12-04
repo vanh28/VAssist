@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MUINavBar } from "../components/MUINavBar";
 import SpeechReg from "../components/SpeechReg";
+import VolumeSetting from "../components/Volume";
 
 function Protected() {
   const handleAudio = () => { 
@@ -40,6 +41,7 @@ function Protected() {
     <div>
     <MUINavBar />
     <SpeechReg />
+    <VolumeSetting />
     <div className="bg-white pt-40 md:pt-60">
       
       <div className="mx-auto max-w-7xl">

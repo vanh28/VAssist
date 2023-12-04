@@ -16,6 +16,7 @@
     "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
+    "agora-rtc-sdk-ng": "^4.19.3",
     "axios": "^1.6.2",
     "face-api.js": "^0.22.2",
     "firebase": "^10.7.0",
@@ -24,7 +25,6 @@
     "react-router-dom": "^6.11.1",
     "react-speech-recognition": "^3.10.0",
     "regenerator-runtime": "^0.14.0",
-    "agora-rtc-sdk-ng": "^4.11.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

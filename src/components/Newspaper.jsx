@@ -1,9 +1,8 @@
-
-import "../pages/News.css"
+import "../pages/News.css";
 import Article from "./Article";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
-import { collection, getDocs } from 'firebase/firestore/lite';
+import { collection, getDocs } from "firebase/firestore/lite";
 
 const Newspaper = () => {
   const [articles, setArticles] = useState([]);
@@ -101,7 +100,6 @@ const Newspaper = () => {
 };
 
 export default Newspaper;
-
 
 // import { db } from "../../firebase";
 // const articl = [
