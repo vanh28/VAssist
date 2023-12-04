@@ -37,7 +37,7 @@ import song from '../assets/song.mp3';
 
 import { useState, useRef } from 'react';
   
-function Article({ article }) {
+function Book({ book }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
   const handlePlayAudio = () => {
@@ -55,7 +55,7 @@ function Article({ article }) {
   };
 
   const handleAudio = () => {
-    let audio = new Audio(article.audioTitle); // replace 'audioUrl' with the actual property
+    let audio = new Audio(book.audioTitle); // replace 'audioUrl' with the actual property
     audio.play();
   }
 
@@ -70,40 +70,16 @@ function Article({ article }) {
     <div className="news__card">
       <CardMedia
         sx={{ height: 235.58 }}
-        image={article.urlToImage}
+        image={book.urlToImage}
         title="green iguana"
       />
-      <CardContent className="border-spacing-0">
-        <Typography gutterBottom variant="h5" component="div">
-          {article.title}
-        </Typography>
-        <Typography
-          gutterBottom
-          variant="subtitle2"
-          component="div"
-          align="right"
-          className="italic"
-        >
-          Ngày đăng: 19/4/2021
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {article.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <IconButton
-          aria-label="play/pause"
-          onClick={handlePlayAudio}
-          onFocus={handleAudio}
-        >
-          <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-        </IconButton>
-        {isPlaying && (
-          <audio src={article.audioUrl} autoPlay controls>
-            Your browser does not support the audio element.
-          </audio>
-        )}
-      </CardActions>
+      <p></p>
+      <h2 style={{ fontSize: "1.6rem", fontFamily: "'Source Sans Pro', sans-serif", display: 'block', marginTop: '20px', marginBottom: '20px', fontWeight: 'bold' }}>{book.title} </h2>
+      <p></p>
+      <p>{book.description}</p>
+      <IconButton aria-label="play/pause" onClick={handlePlayAudio} onFocus={handleAudio}>
+        <PlayArrowIcon sx={{ height: 38, width: 38 }} />
+      </IconButton>
     </div>
   );
 }
@@ -113,4 +89,4 @@ function Article({ article }) {
                     <h2><%- article.title.rendered %></h2>
                     <p><%- article.excerpt.rendered %></p>
                 </a> */}
-export default Article;
+export default Book;

@@ -17,6 +17,7 @@ import Videocall from "./pages/Videocall";
 import Sports from "./pages/Sports";
 import Climate from "./pages/Climate";
 import Education from "./pages/Education";
+import Books from "./pages/Books";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
         <Route path="/news/sports" element={<Sports />} />
         <Route path="/news/climate" element={<Climate />} />
         <Route path="/news/education" element={<Education />} />
+        <Route path="/news/Books" element={<Books />} />
         <Route path="*" element={<Navigate to="/" />} />
       {/* </Route> */}
     </>

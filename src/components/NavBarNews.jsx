@@ -12,9 +12,9 @@ export const NavBarNews = () => {
         navigate("/news/trending")
     }
 
-    function navigateToSports(e) {
+    function navigateToBooks(e) {
         e.preventDefault()
-        navigate("/news/sports")
+        navigate("/news/Books")
     }   
 
     function navigateToClimate(e) {
@@ -33,36 +33,56 @@ export const NavBarNews = () => {
     }
 
     return (
-        <AppBar position='static' sx={{ backgroundColor: '#1e3a8a' }}>
-            <Toolbar>
-                <IconButton tabIndex={"-1"} size='large' edge='start' color='bg-blue-900' aria-label='logo'>
-                </IconButton>   
-                <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-                </Typography>
-                {/* Search bar */}
-                <InputBase
-                    placeholder="Search..."
-                    sx={{
-                        color: 'inherit',
-                        ml: 1,
-                        flex: 1,
-                        borderRadius: 4,
-                        backgroundColor: alpha('#fff', 0.15),
-                        '&:hover': {
-                            backgroundColor: alpha('#fff', 0.25),
-                        },
-                        p: '8px 12px',
-                    }}
-                />
-                {/* End of search bar */}
-                <Stack direction='row' spacing={2}>
-                    <Button tabIndex={"-1"} color='inherit' onClick={navigateToNews}>Trending</Button>
-                    <Button tabIndex={"-1"} color='inherit' onClick={navigateToSports}>Sports</Button>           
-                    <Button tabIndex={"-1"} color='inherit' onClick={navigateToClimate}>Climate</Button>
-                    <Button tabIndex={"-1"} color='inherit' onClick={navigateToEducation}>Education</Button>
-                </Stack>
-                
-            </Toolbar>
-        </AppBar>
+      <AppBar
+      position="static"
+      // sx={{ backgroundColor: "#1e6f8a" }}
+      color="info"
+      className="rounded-b-full"
+    >
+      <Toolbar>
+        <IconButton
+          tabIndex={"-1"}
+          size="large"
+          edge="start"
+          color="bg-blue-900"
+          aria-label="logo"
+        ></IconButton>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1 }}
+        ></Typography>
+        {/* Search bar */}
+        <InputBase
+          placeholder="Search..."
+          sx={{
+            color: "inherit",
+            ml: 1,
+            flex: 1,
+            borderRadius: 4,
+            backgroundColor: alpha("#fff", 0.15),
+            "&:hover": {
+              backgroundColor: alpha("#fff", 0.25),
+            },
+            p: "8px 12px",
+          }}
+        />
+        {/* End of search bar */}
+        <Stack direction="row" spacing={2}>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToNews}>
+            Tin tức
+          </Button>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToBooks}>
+            Sách nói
+          </Button>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToClimate}>
+            Thời tiết
+          </Button>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToEducation}>
+            Học tập
+          </Button>
+        </Stack>
+      </Toolbar>
+    </AppBar>
     );
 };
