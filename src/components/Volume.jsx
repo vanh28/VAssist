@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import './SpeechReg.css';
-import song from '../assets/song.mp3';
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import "./SpeechReg.css";
+import song from "../assets/song.mp3";
+import { Modal } from "@mui/material";
 
 const VolumeSetting = () => {
   const [showComponentVolume, setShowComponent] = useState(false);
@@ -9,7 +10,7 @@ const VolumeSetting = () => {
 
   const [isEnterPressed, setIsEnterPressed] = useState(false);
   const [volume, setVolume] = useState(() => {
-    const savedVolume = localStorage.getItem('volume');
+    const savedVolume = localStorage.getItem("volume");
     return savedVolume !== null ? parseInt(savedVolume, 10) : 50;
   });
 
@@ -22,32 +23,29 @@ const VolumeSetting = () => {
   const handleVolumeChange = (event) => {
     const newVolume = parseInt(event.target.value, 10);
     setVolume(newVolume);
-    localStorage.setItem('volume', newVolume.toString());
+    localStorage.setItem("volume", newVolume.toString());
     if (audioRef.current) {
       audioRef.current.volume = newVolume / 100; // Update audio volume if the audio element exists
     }
   };
 
-  const handleKeyPress = useCallback(
-    (e) => {
-      if (e.key === 'Enter') {
-        setIsEnterPressed(true);
-      }
-    },
-    []
-  );
+  const handleKeyPress = useCallback((e) => {
+    if (e.key === "Enter") {
+      setIsEnterPressed(true);
+    }
+  }, []);
 
   useEffect(() => {
     const leftClickHandler = () => {
       handleLeftClick();
     };
 
-    window.addEventListener('click', leftClickHandler);
-    window.addEventListener('keypress', handleKeyPress);
+    window.addEventListener("click", leftClickHandler);
+    window.addEventListener("keypress", handleKeyPress);
 
     return () => {
-      window.removeEventListener('click', leftClickHandler);
-      window.removeEventListener('keypress', handleKeyPress);
+      window.removeEventListener("click", leftClickHandler);
+      window.removeEventListener("keypress", handleKeyPress);
     };
   }, [handleKeyPress]);
 
@@ -79,17 +77,29 @@ const VolumeSetting = () => {
 
   return (
     <>
-      {showComponentVolume && (
+      <Modal
+        open={showComponentVolume}
+        onClose={() => setShowComponent(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
         <div className="card">
+          <div className="font-semibold">Thay đổi âm</div>
           <button onClick={handleSaveClick}>Save</button>
-          <input type="range" min={0} max={100} value={volume} onChange={handleVolumeChange} />
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={volume}
+            onChange={handleVolumeChange}
+          />
           <p>Volume: {volume}</p>
           <audio autoPlay ref={audioRef}>
             <source src={song} type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
         </div>
-      )}
+      </Modal>
     </>
   );
 };
