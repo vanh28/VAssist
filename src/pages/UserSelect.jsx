@@ -14,11 +14,6 @@ const accounts = [
     fullName: "Vu Quang Hai",
     picture: "Hai/Hai.jpg",
   },
-  {
-    id: "0c2f5599-9296-4f94-97d5-e773043188ae",
-    fullName: "Emily Martinez",
-    picture: "/0c2f5599-9296-4f94-97d5-e773043188ae/1.jpg",
-  },
 ];
 
 function UserSelect() {
