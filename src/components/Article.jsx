@@ -44,10 +44,9 @@ function Article({ article }) {
     // Play the audio here
   };
 
-  const handleAudio = () => { 
-    let utterance = new SpeechSynthesisUtterance(article.title);
-    utterance.lang = 'vi-VN';
-    speechSynthesis.speak(utterance);
+  const handleAudio = () => {
+    let audio = new Audio(article.audioTitle); // replace 'audioUrl' with the actual property
+    audio.play();
   }
 
   return (
