@@ -58,20 +58,20 @@ export const MUINavBar = () => {
           </Button>
         </Typography>
         <Stack direction="row" spacing={2}>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToHome}>
+            Trang chủ
+          </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToNews}>
-            News
+            Thư viện nói
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToCall}>
-            Video call
-          </Button>
-          <Button tabIndex={"-1"} color="inherit" onClick={navigateToMusic}>
-            Music
+            Xã hội
           </Button>
           <Button tabIndex={"-1"} color="inherit">
-            Contact
+            Thông tin
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToProfile}>
-            Profile
+            Tài khoản
           </Button>
         </Stack>
       </Toolbar>
