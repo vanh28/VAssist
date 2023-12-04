@@ -63,7 +63,7 @@ import { useNavigate } from 'react-router-dom';
 import { BrowserRouter,Route,Link,redirect} from 'react-router-dom';
 import Redirect from 'react-router-dom';
 import SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
-
+import AudioNavigate from '../assets/mp3/NavigateByVoice.mp3';
 import './SpeechReg.css'; // Import the CSS file
 
 const SpeechReg = () => {
@@ -121,10 +121,16 @@ const SpeechReg = () => {
     }
     if (clickCount === 3) {
       setShowComponent(true);
+      handleAudioOpen();
       setClickCount(0);
       disableRightClick();
     }
   }, [clickCount]);
+
+  const handleAudioOpen = () => { 
+    const audio = new Audio(AudioNavigate);
+    audio.play();
+  }
   const disableRightClick = () => {
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault();

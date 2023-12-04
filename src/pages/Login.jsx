@@ -3,14 +3,17 @@ import * as faceapi from "face-api.js";
 import AuthIdle from "../assets/images/auth-idle.svg";
 import AuthFace from "../assets/images/auth-face.svg";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-
+import LoadModel from "../assets/mp3/LoadModel.mp3";
+import LoadModelSuccess from "../assets/mp3/LoadModelSuccess.mp3";
+import FaceReg from "../assets/mp3/FaceReg.mp3";
 function Login() {
   const handleAudio = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("Waiting for uploading the models.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(LoadModel);
+    audio.play();
+  }
+  const handleSuccessAudio = () => { 
+    const audio = new Audio(LoadModelSuccess);
+    audio.play();
   }
 
   useEffect(() => {
@@ -190,18 +193,12 @@ function Login() {
   }
 
   const handleVoiceLoadModel = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("Model load Successful.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(LoadModelSuccess);
+    audio.play();
   }
   const handleVoiceOnFocus = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("Press enter to Face recognition.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(FaceReg);
+    audio.play();
   }
   const [isSpeaked, setIsSpeaked] = useState(false);
   if (modelsLoaded ){

@@ -3,14 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { MUINavBar } from "../components/MUINavBar";
 import SpeechReg from "../components/SpeechReg";
 import VolumeSetting from "../components/Volume";
-
+import LoginSuccess from "../assets/mp3/LoginSuccess.mp3";
 function Protected() {
   const handleAudio = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is Profile.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(LoginSuccess);
+    audio.play();
   }
 
   useEffect(() => {

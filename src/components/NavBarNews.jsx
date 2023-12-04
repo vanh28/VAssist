@@ -7,12 +7,20 @@ import {
   InputBase,
   alpha,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from 'react';
 import MenuIcon from "@mui/icons-material/Menu";
 import { Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
 export const NavBarNews = () => {
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+  
+
   const navigate = useNavigate();
 
   function navigateToTrend(e) {

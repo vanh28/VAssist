@@ -7,16 +7,11 @@ import Newspaper from "../components/Newspaper";
 import Container from "@mui/material/Container";
 import SpeechReg from "../components/SpeechReg";
 import { VideoRoom } from "../components/VideoRomm";
-
+import Call from "../assets/mp3/Call.mp3";
 function Videocall() {
   const handleAudio = () => {
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance(
-        "This is a page for calling."
-      );
-      utterance.lang = "vi-VN";
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(Call);
+    audio.play();
   };
 
   useEffect(() => {

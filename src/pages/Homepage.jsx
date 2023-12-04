@@ -15,14 +15,11 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-
+import HomePage from "../assets/mp3/HomePage.mp3";
 function Homepage() {
   const handleAudio = () => {
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is Homepage.");
-      utterance.lang = "vi-VN";
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(HomePage);
+    audio.play();
   };
 
   useEffect(() => {
