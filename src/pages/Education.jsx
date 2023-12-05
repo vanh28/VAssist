@@ -7,11 +7,11 @@ import Container from '@mui/material/Container';
 import './News.css'
 import SpeechReg from '../components/SpeechReg';
 import { NavBarNews } from '../components/NavBarNews';
-import Education from '../assets/mp3/Education.mp3';
+import EducationAudio from '../assets/mp3/Education.mp3';
 
 function Education() {
   const handleAudio = () => { 
-    const audio = new Audio(Education);
+    const audio = new Audio(EducationAudio);
     audio.play();
   }
 

@@ -27,7 +27,7 @@ import { getVolumeFromLocalStorage } from "./Volume";
 // import song from "../assets/mp3/song.mp3";
 // import { getVolumeFromLocalStorage } from "./Volume";
 
-import { useState, useRef } from 'react';
+
   
 function Article({ article }) {
   const [isPlaying, setIsPlaying] = useState(false);
