@@ -80,6 +80,7 @@ export const NavBarNews = () => {
             },
             p: "8px 12px",
           }}
+          className="right-60"
         />
         {/* End of search bar */}
         <Stack direction="row" spacing={2}>
