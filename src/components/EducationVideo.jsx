@@ -40,23 +40,17 @@ function EducationVideo({ video }) {
     }
   };
   
+
+  
   return (
-    <div className="news_book">
-      <CardActions >
-        <Typography gutterBottom variant="h5" component="div">
-          </Typography>
-        <IconButton
-          tabIndex={"1"}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}
-          aria-label="play/pause"
-          onClick={handlePlayAudio}
-          onFocus={handleAudio}
-        >
-          <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-        </IconButton>
-      </CardActions>
+    <div className="news__card">
+      <CardMedia
+        sx={{ height: 235.58 }}
+        image={video.urlToImage}
+        title="green iguana"
+      />
       <CardContent className="border-spacing-0">
-        <Typography gutterBottom variant="h5" component="div" style={{ color: '#133c8b', fontWeight: 'bold' }}>
+        <Typography gutterBottom variant="h5" component="div">
           {video.title}
         </Typography>
         <Typography
@@ -66,12 +60,21 @@ function EducationVideo({ video }) {
           align="right"
           className="italic"
         >
-          Ngày đăng: {video.date}
+          {video.author}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {video.description}
         </Typography>
       </CardContent>
+      <CardActions>
+        <IconButton
+          aria-label="play/pause"
+          onClick={handlePlayAudio}
+          onFocus={handleAudio}
+        >
+          <PlayArrowIcon sx={{ height: 38, width: 38 }} />
+        </IconButton>
+      </CardActions>
     </div>
   );
 }
