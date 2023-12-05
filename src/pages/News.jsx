@@ -8,15 +8,12 @@ import './News.css'
 import SpeechReg from '../components/SpeechReg';
 import { NavBarNews } from '../components/NavBarNews';
 import VolumeSetting from '../components/Volume';
-
-
+import { VolumeContext } from '../components/Volume';
+import NewsAudio from "../assets/mp3/News.mp3";
 function News() {
   const handleAudio = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is News.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(NewsAudio);
+    audio.play();
   }
 
   useEffect(() => {
@@ -24,6 +21,7 @@ function News() {
   }, []);
   return (
     <>
+    
     <MUINavBar />
     <NavBarNews />
     <SpeechReg />

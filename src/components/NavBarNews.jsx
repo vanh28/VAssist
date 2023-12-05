@@ -1,39 +1,53 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, InputBase, alpha } from '@mui/material';
-import React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Stack } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+  InputBase,
+  alpha,
+} from "@mui/material";
+import React, { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
 export const NavBarNews = () => {
-    const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
-    function navigateToTrend(e) {
-        e.preventDefault()
-        navigate("/news/trending")
-    }
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
-    function navigateToBooks(e) {
-        e.preventDefault()
-        navigate("/news/Books")
-    }   
+  const navigate = useNavigate();
 
-    function navigateToClimate(e) {
-        e.preventDefault()
-        navigate("/news/climate")
-    }
+  function navigateToTrend(e) {
+    e.preventDefault();
+    navigate("/news/trending");
+  }
 
-    function navigateToEducation(e) {
-        e.preventDefault()
-        navigate("/news/education")
-    }
+  function navigateToBooks(e) {
+    e.preventDefault();
+    navigate("/news/Books");
+  }
 
-    function navigateToNews(e) {
-        e.preventDefault()
-        navigate("/news")
-    }
+  function navigateToClimate(e) {
+    e.preventDefault();
+    navigate("/news/climate");
+  }
 
-    return (
-      <AppBar
+  function navigateToEducation(e) {
+    e.preventDefault();
+    navigate("/news/education");
+  }
+
+  function navigateToNews(e) {
+    e.preventDefault();
+    navigate("/news");
+  }
+
+  return (
+    <AppBar
       position="static"
       // sx={{ backgroundColor: "#1e6f8a" }}
       color="info"
@@ -84,5 +98,5 @@ export const NavBarNews = () => {
         </Stack>
       </Toolbar>
     </AppBar>
-    );
+  );
 };

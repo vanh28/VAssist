@@ -1,24 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import LoginPage from "../assets/mp3/EnterTologin.mp3";
+import Welcome from "../assets/mp3/Welcome.mp3";
 function Home() {
   const handleAudio = () => {
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("Welcome to Homepage.");
-      utterance.lang = "vi-VN";
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(Welcome);
+    audio.play();
   }
   const handleLoginVoice = () => {
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("Press Enter to login.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    
+    const audio = new Audio(LoginPage);
+    audio.play();
+    
   }
   useEffect(() => {
     handleAudio();
-    handleLoginVoice();
+    
   }, []);
   return (
     <div className="bg-white py-40 md:pt-60 md:pb-24">

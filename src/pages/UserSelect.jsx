@@ -3,6 +3,7 @@ import User from "../components/User";
 import { RadioGroup } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import ChooseUser from "../assets/mp3/ChooseUser.mp3";
 const accounts = [
   {
     id: "374ed1e4-481b-4074-a26e-6137657c6e35",
@@ -18,11 +19,8 @@ const accounts = [
 
 function UserSelect() {
   const handleAudio = () => {
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("Choose an user to log in.");
-      utterance.lang = "vi-VN";
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(ChooseUser);
+    audio.play();
   };
 
   useEffect(() => {
