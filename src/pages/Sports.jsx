@@ -7,12 +7,14 @@ import Container from '@mui/material/Container';
 import './News.css'
 import SpeechReg from '../components/SpeechReg';
 import { NavBarNews } from '../components/NavBarNews';
+import VolumeSetting from '../components/Volume';
+import SportsVideos from '../components/SportsVideos';
 
 
-function News() {
+function Sports() {
   const handleAudio = () => { 
     if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is News for sports.");
+      let utterance = new SpeechSynthesisUtterance("This is for Sports.");
       utterance.lang = 'vi-VN';
       speechSynthesis.speak(utterance);
     }
@@ -26,10 +28,11 @@ function News() {
     <MUINavBar />
     <NavBarNews />
     <SpeechReg />
+    <VolumeSetting />
     
     <Container maxWidth="full" maxHeight="full" style={{backgroundColor: "#f6f6f6"}}>
     <div className='News'>
-      <Newspaper />
+      <SportsVideos />
     </div>
     </Container>
     </>
@@ -37,4 +40,4 @@ function News() {
   )
 }
 
-export default News
+export default Sports
