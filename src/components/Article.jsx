@@ -9,7 +9,6 @@ import {Grid} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import "./Article.css"
-import { useState, useEffect, useRef } from "react";
 import { getVolumeFromLocalStorage } from "./Volume";
 
 // import * as React from "react";
@@ -23,11 +22,10 @@ import { getVolumeFromLocalStorage } from "./Volume";
 // import IconButton from "@mui/material/IconButton";
 // import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 // import "./Article.css";
-// import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 // import song from "../assets/mp3/song.mp3";
 // import { getVolumeFromLocalStorage } from "./Volume";
 
-import { useState, useRef } from 'react';
   
 function Article({ article }) {
   const [isPlaying, setIsPlaying] = useState(false);
