@@ -1,47 +1,39 @@
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Button,
-  InputBase,
-  alpha,
-} from "@mui/material";
-import React from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Stack } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Button, InputBase, alpha } from '@mui/material';
+import React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Stack } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
 
 export const NavBarNews = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  function navigateToTrend(e) {
-    e.preventDefault();
-    navigate("/news/trending");
-  }
+    function navigateToRadio(e) {
+        e.preventDefault()
+        navigate("/Radio")
+    }
 
-  function navigateToSports(e) {
-    e.preventDefault();
-    navigate("/news/sports");
-  }
+    function navigateToBooks(e) {
+        e.preventDefault()
+        navigate("/Books")
+    }   
 
-  function navigateToClimate(e) {
-    e.preventDefault();
-    navigate("/news/climate");
-  }
+    function navigateToSports(e) {
+        e.preventDefault()
+        navigate("/Sports")
+    }
 
-  function navigateToEducation(e) {
-    e.preventDefault();
-    navigate("/news/education");
-  }
+    function navigateToEducation(e) {
+        e.preventDefault()
+        navigate("/Education")
+    }
 
-  function navigateToNews(e) {
-    e.preventDefault();
-    navigate("/news");
-  }
+    function navigateToNews(e) {
+        e.preventDefault()
+        navigate("/news")
+    }
 
-  return (
-    <AppBar
+    return (
+      <AppBar
       position="static"
       // sx={{ backgroundColor: "#1e6f8a" }}
       color="info"
@@ -74,24 +66,26 @@ export const NavBarNews = () => {
             },
             p: "8px 12px",
           }}
-          className="right-60"
         />
         {/* End of search bar */}
         <Stack direction="row" spacing={2}>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToNews}>
-            Xu hướng
+            Tin tức
+          </Button>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToBooks}>
+            Sách nói
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToSports}>
-            Thể thao
-          </Button>
-          <Button tabIndex={"-1"} color="inherit" onClick={navigateToClimate}>
-            Thời tiết
+            Thể dục
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToEducation}>
             Học tập
           </Button>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToRadio}>
+            Radio
+          </Button>
         </Stack>
       </Toolbar>
     </AppBar>
-  );
+    );
 };
