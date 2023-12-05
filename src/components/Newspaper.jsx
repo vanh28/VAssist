@@ -30,4 +30,3 @@ const Newspaper = () => {
 };
 
 export default Newspaper;
-

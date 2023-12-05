@@ -13,10 +13,9 @@ import React, {
   
     return (
       <div>
-        Uid: {user.uid}
         <div
           ref={ref}
-          style={{ width: '200px', height: '200px' }}
+          style={{ width: '400px', height: '400px' }}
         ></div>
       </div>
     );

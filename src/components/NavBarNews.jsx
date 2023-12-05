@@ -7,40 +7,38 @@ import {
   InputBase,
   alpha,
 } from "@mui/material";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
 export const NavBarNews = () => {
-
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
-  
 
   const navigate = useNavigate();
 
   function navigateToTrend(e) {
     e.preventDefault();
-    navigate("/news/trending");
+    navigate("/trending");
   }
 
-  function navigateToSports(e) {
+  function navigateToBooks(e) {
     e.preventDefault();
-    navigate("/news/sports");
+    navigate("/Books");
   }
 
   function navigateToClimate(e) {
     e.preventDefault();
-    navigate("/news/climate");
+    navigate("/climate");
   }
 
   function navigateToEducation(e) {
     e.preventDefault();
-    navigate("/news/education");
+    navigate("/education");
   }
 
   function navigateToNews(e) {
@@ -82,14 +80,15 @@ export const NavBarNews = () => {
             },
             p: "8px 12px",
           }}
+          className="right-60"
         />
         {/* End of search bar */}
         <Stack direction="row" spacing={2}>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToNews}>
-            Xu hướng
+            Tin tức
           </Button>
-          <Button tabIndex={"-1"} color="inherit" onClick={navigateToSports}>
-            Thể thao
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToBooks}>
+            Sách nói
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToClimate}>
             Thời tiết
