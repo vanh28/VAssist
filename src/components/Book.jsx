@@ -1,56 +1,18 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import {Grid} from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import "./Article.css"
-import { useState, useRef } from 'react';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { Grid } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import "./Article.css";
+import { useState, useRef } from "react";
 import song from "../assets/mp3/song.mp3";
 import { getVolumeFromLocalStorage } from "./Volume";
-
-import BookAudio from '../assets/mp3/Book.mp3';
-// import * as React from "react";
-// import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
-// import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
-// import Button from "@mui/material/Button";
-// import Typography from "@mui/material/Typography";
-// import { Grid } from "@mui/material";
-// import IconButton from "@mui/material/IconButton";
-// import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-// import "./Article.css";
-// import song from '../assets/song.mp3';
-// function Article({ article }) {
-//   return (
-//     <Grid item xs={12} sm={12} md={12}>
-//       <Card>
-//         <CardMedia
-//           sx={{ height: 140 }}
-//           image={article.urlToImage}
-//           title="green iguana"
-//         />
-//         <CardContent>
-//           <Typography gutterBottom variant="h5" component="div" style={{ fontFamily: 'Merriweather', fontWeight: '1000' }}>
-//             {article.title}
-//           </Typography>
-//           <Typography variant="body2" color="text.secondary">
-//             {article.description}
-//           </Typography>
-//         </CardContent>
-//         <CardActions sx={{ textAlign: 'center' }}>
-//           <Button size="medium">Audio Play</Button>
-//         </CardActions>
-//       </Card>
-//     </Grid>
-//   );
-// }
-
+import BookAudio from "../assets/mp3/Book.mp3";
 
 function Book({ book }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -70,24 +32,28 @@ function Book({ book }) {
   };
 
   const handleAudio = () => {
-    let audio = new Audio(book.audioTitle); 
+    let audio = new Audio(book.audioTitle);
     audio.play();
-  }
+  };
 
   const handlePauseAudio = () => {
     if (audio) {
       audio.pause();
     }
   };
-  
+
   return (
-    <div className="news_book">
-      <CardActions >
-        <Typography gutterBottom variant="h5" component="div">
-          </Typography>
+    <div>
+      <CardActions>
+        <Typography gutterBottom variant="h5" component="div"></Typography>
         <IconButton
           tabIndex={"1"}
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
           aria-label="play/pause"
           onClick={handlePlayAudio}
           onFocus={handleAudio}
@@ -96,7 +62,12 @@ function Book({ book }) {
         </IconButton>
       </CardActions>
       <CardContent className="border-spacing-0">
-        <Typography gutterBottom variant="h5" component="div" style={{ color: '#133c8b', fontWeight: 'bold' }}>
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          style={{ color: "#133c8b", fontWeight: "bold" }}
+        >
           {book.title}
         </Typography>
         <Typography
