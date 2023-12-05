@@ -1,5 +1,5 @@
 import { MUINavBar } from "../components/MUINavBar";
-
+import Button from '@mui/material/Button';
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { NewsContextProvider } from "../NewsContext";
@@ -24,16 +24,20 @@ function Videocall() {
       <SpeechReg />
       <div className='call'>
         {!joined && (
-          <button onClick={() => setJoined(true)}>
+          <div style={{  display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 100px)', margin: '50px 0' }}>
+          <Button tabIndex={1} style={{backgroundColor: '#1e3a8a'}} variant="contained" onClick={() => setJoined(true)}>
             Join Room
-          </button>
+          </Button>
+        </div>
         )}
 
         {joined && (
           <>
-            <button onClick={() => setJoined(false)}>
+            <div style={{ paddingTop: 20 ,display: 'flex', justifyContent: 'center' }}>
+            <Button tabIndex={1} style={{backgroundColor: '#1e3a8a'}} variant="contained" onClick={() => setJoined(false)}>
               To Lobby
-            </button>
+            </Button>
+          </div>
             <VideoRoom />
           </>
         )}
