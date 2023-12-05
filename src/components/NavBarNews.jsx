@@ -23,22 +23,22 @@ export const NavBarNews = () => {
 
   function navigateToTrend(e) {
     e.preventDefault();
-    navigate("/news/trending");
+    navigate("/trending");
   }
 
   function navigateToBooks(e) {
     e.preventDefault();
-    navigate("/news/Books");
+    navigate("/Books");
   }
 
   function navigateToClimate(e) {
     e.preventDefault();
-    navigate("/news/climate");
+    navigate("/climate");
   }
 
   function navigateToEducation(e) {
     e.preventDefault();
-    navigate("/news/education");
+    navigate("/education");
   }
 
   function navigateToNews(e) {
