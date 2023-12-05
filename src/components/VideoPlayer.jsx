@@ -15,7 +15,7 @@ import React, {
       <div>
         <div
           ref={ref}
-          style={{ width: '400px', height: '400px' }}
+          style={{ width: '700px', height: '580px', marginLeft: '0 auto', padding: '0px' }}
         ></div>
       </div>
     );
