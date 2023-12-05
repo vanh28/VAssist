@@ -4,10 +4,8 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore/lite";
 import RadioVideo from "./RadioVideo";
-import book1 from '../assets/book/book1.mp3';
-import book2 from '../assets/book/book2.mp3';
 import book3 from '../assets/book/book3.mp3';
-import book4 from '../assets/book/book4.mp3';
+
 import book5 from '../assets/book/book5.mp3';
 import book6 from '../assets/book/book6.mp3';
   // const [articles, setArticles] = useState([]);
@@ -29,7 +27,7 @@ import book6 from '../assets/book/book6.mp3';
         title: "1. Tài liệu hỏi - đáp về vệ sinh môi trường nông thôn, bảo vệ người sản xuất và cộng đồng",
         description: "“Tài liệu hỏi - đáp về vệ sinh môi trường nông thôn, bảo vệ người sản xuất và cộng đồng” được biên soạn dựa trên nội dung cuốn sách cùng tên là “Hỏi - đáp về vệ sinh môi trường nông thôn, bảo vệ người sản xuất và cộng đồng”. Tài liệu là chuỗi các câu hỏi – đáp về các kiến thức về môi trường, vệ sinh lao động, các vấn đề về nguyên nhân, tình trạng ô nhiễm môi trường, cách xử lý rác thải, cách sử dụng thuốc bảo vệ thực vật an toàn, .... Đây là các kiến thức cơ bản, hữu ích dành cho mỗi tổ chức, cá nhân. Cùng lắng nghe để hiểu và biết cách bảo vệ môi trường sống cho chính mình và những người xung quanh, vì một môi trường xanh sạch đẹp.",
         date: "05/12/2023",
-        audioUrl: book1,
+        audioUrl: book3,
         audioTitle: "",
       },
       {
