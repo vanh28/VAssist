@@ -1,5 +1,5 @@
 import { MUINavBar } from "../components/MUINavBar";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { NewsContextProvider } from "../NewsContext";
@@ -22,22 +22,64 @@ function Videocall() {
     <div className="Videocall">
       <MUINavBar />
       <SpeechReg />
-      <div className='call'>
-        {!joined && (
-          <div style={{  display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 100px)', margin: '50px 0' }}>
-          <Button tabIndex={1} style={{backgroundColor: '#1e3a8a'}} variant="contained" onClick={() => setJoined(true)}>
-            Join Room
-          </Button>
+
+      <div
+        className="bg-cover bg-center bg-no-repeat h-screen flex flex-col items-center"
+        style={{
+          backgroundImage:
+            "url('https://simcomsolutions.co.in/images/contents/sliders3/4.jpg')",
+          opacity: 0.9,
+          backgroundRepeat: "no-repeat",
+          width: "100%",
+          backgroundSize: "contain",
+        }}
+      >
+        <div className="text-4xl font-bold opacity-100 pt-4">VConnect</div>
+        <div className="text-xl mt-4">
+          Kết nối cộng đồng, bắt đầu trò chuyện ngay
         </div>
+      </div>
+
+      <div className="call">
+        {!joined && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "calc(100vh - 100px)",
+              margin: "50px 0",
+            }}
+          >
+            <Button
+              tabIndex={1}
+              style={{ backgroundColor: "#1e3a8a" }}
+              variant="contained"
+              onClick={() => setJoined(true)}
+            >
+              Join Room
+            </Button>
+          </div>
         )}
 
         {joined && (
           <>
-            <div style={{ paddingTop: 20 ,display: 'flex', justifyContent: 'center' }}>
-            <Button tabIndex={1} style={{backgroundColor: '#1e3a8a'}} variant="contained" onClick={() => setJoined(false)}>
-              To Lobby
-            </Button>
-          </div>
+            <div
+              style={{
+                paddingTop: 20,
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Button
+                tabIndex={1}
+                style={{ backgroundColor: "#1e3a8a" }}
+                variant="contained"
+                onClick={() => setJoined(false)}
+              >
+                To Lobby
+              </Button>
+            </div>
             <VideoRoom />
           </>
         )}

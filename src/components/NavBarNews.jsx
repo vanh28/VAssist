@@ -1,39 +1,47 @@
-import { AppBar, Toolbar, IconButton, Typography, Button, InputBase, alpha } from '@mui/material';
-import React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Stack } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+  InputBase,
+  alpha,
+} from "@mui/material";
+import React from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
 export const NavBarNews = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    function navigateToRadio(e) {
-        e.preventDefault()
-        navigate("/Radio")
-    }
+  function navigateToRadio(e) {
+    e.preventDefault();
+    navigate("/Radio");
+  }
 
-    function navigateToBooks(e) {
-        e.preventDefault()
-        navigate("/Books")
-    }   
+  function navigateToBooks(e) {
+    e.preventDefault();
+    navigate("/Books");
+  }
 
-    function navigateToSports(e) {
-        e.preventDefault()
-        navigate("/Sports")
-    }
+  function navigateToSports(e) {
+    e.preventDefault();
+    navigate("/Sports");
+  }
 
-    function navigateToEducation(e) {
-        e.preventDefault()
-        navigate("/Education")
-    }
+  function navigateToEducation(e) {
+    e.preventDefault();
+    navigate("/Education");
+  }
 
-    function navigateToNews(e) {
-        e.preventDefault()
-        navigate("/news")
-    }
+  function navigateToNews(e) {
+    e.preventDefault();
+    navigate("/news");
+  }
 
-    return (
-      <AppBar
+  return (
+    <AppBar
       position="static"
       // sx={{ backgroundColor: "#1e6f8a" }}
       color="info"
@@ -80,10 +88,10 @@ export const NavBarNews = () => {
             Học tập
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToRadio}>
-            Radio
+            Âm nhạc
           </Button>
         </Stack>
       </Toolbar>
     </AppBar>
-    );
+  );
 };
