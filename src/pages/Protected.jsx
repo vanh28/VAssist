@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { MUINavBar } from "../components/MUINavBar";
+import SpeechReg from "../components/SpeechReg";
+import VolumeSetting from "../components/Volume";
+import LoginSuccess from "../assets/mp3/LoginSuccess.mp3";
+import EnterToLogout from "../assets/mp3/EnterToLogout.mp3";
 function Protected() {
+  const handleAudio = () => { 
+    const audio = new Audio(LoginSuccess);
+    audio.play();
+  }
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   const [account, setAccount] = useState(null);
   const navigate = useNavigate();
 
@@ -22,9 +34,17 @@ function Protected() {
   if (!account) {
     return null;
   }
-
+  const handleAudioLogout = () => { 
+    const audio = new Audio(EnterToLogout);
+    audio.play();
+  }
   return (
+    <div>
+    <MUINavBar />
+    <SpeechReg />
+    <VolumeSetting />
     <div className="bg-white pt-40 md:pt-60">
+      
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-12">
           Bạn đã đăng nhập thành công!
@@ -40,22 +60,22 @@ function Protected() {
             alt={account.fullName}
           />
           <h1
-            className="block text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-800"
+            className="block text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-black"
             style={{
               lineHeight: "1.5",
             }}
           >
             {account?.fullName}
           </h1>
-          <button onClick={navigateToHomepage}>Go to Homepage</button>
+          <button className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-900" onClick={navigateToHomepage}><span className="text-white">Homepage</span></button>
           <div
             onClick={() => {
               localStorage.removeItem("faceAuth");
               //navigate("/");
             }}
-            className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-red-400 to-red-600"
+            className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-900"
           >
-            <span className="text-white">Log Out</span>
+            <button className="text-white" onFocus={handleAudioLogout}>Log  Out</button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -74,6 +94,7 @@ function Protected() {
           
         </div>
       </div>
+    </div>
     </div>
   );
 }

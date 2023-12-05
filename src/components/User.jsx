@@ -1,6 +1,15 @@
 import { RadioGroup } from "@headlessui/react";
 
 function User({ user, type }) {
+
+  const handleName = (name) => {
+    console.log(name);
+    // if (!speechSynthesis.speaking) {
+    //   let utterance = new SpeechSynthesisUtterance(name);
+    //   utterance.lang = 'vi-VN';
+    //   speechSynthesis.speak(utterance);
+    // }
+  }
   return (
     <RadioGroup.Option
       key={user.id}
@@ -12,16 +21,16 @@ function User({ user, type }) {
       }
     >
       {({ checked }) => (
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between" onFocus = {handleName(user.fullName)}>
           <div className="flex items-center">
-            <div className="text-sm">
-              <RadioGroup.Label
+            <div className="text-sm" >
+              <RadioGroup.Label 
                 as="div"
                 className={`flex items-center gap-x-6 font-medium ${
                   checked ? "text-white" : "text-gray-900"
                 }`}
               >
-                <img
+                <img 
                   className="object-cover h-10 w-10 rounded-full"
                   src={
                     type === "CUSTOM"
@@ -33,8 +42,8 @@ function User({ user, type }) {
                   }
                   alt={user.fullName}
                 />
-                {user.fullName}
-              </RadioGroup.Label>
+                {user.fullName} 
+              </RadioGroup.Label >
             </div>
           </div>
           {checked && (

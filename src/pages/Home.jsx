@@ -1,22 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
+import LoginPage from "../assets/mp3/EnterTologin.mp3";
+import Welcome from "../assets/mp3/Welcome.mp3";
 function Home() {
+  const handleAudio = () => {
+    const audio = new Audio(Welcome);
+    audio.play();
+  }
+  const handleLoginVoice = () => {
+    
+    const audio = new Audio(LoginPage);
+    audio.play();
+    
+  }
+  useEffect(() => {
+    handleAudio();
+    
+  }, []);
   return (
     <div className="bg-white py-40 md:pt-60 md:pb-24">
       <div className="h-full mx-auto max-w-7xl">
         <div className="text-center mb-24">
           <h1 className="leading-3 translate-y-[-5px] mt-12 block  text-5xl text-center tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900">
-            Mạng xã hội 
+            VAssist
           </h1>
           <p className="mt-7 text-md text-gray-600 max-w-3xl mx-4 md:mx-16 lg:mx-auto">
-            Mạng xã hội là một ứng dụng web được phát triển để hỗ trợ người suy giảm thị lực và người khiếm thị. 
-            Mạng xã hội giúp những ngưới suy giảm thị lực và người khiếm thị có thể đọc báo, trò chuyện với nhau, 
-            chia sẻ những trải nghiệm của họ trong cuộc sống giúp họ có nhiều động lực sống
+            VAssist là một ứng dụng web được phát triển để hỗ trợ người suy giảm
+            thị lực và người khiếm thị. VAssist giúp những ngưới suy giảm thị
+            lực và người khiếm thị có thể nghe đọc báo, nghe radio, kết nối trò
+            chuyện với nhau, chia sẻ những trải nghiệm của họ trong cuộc sống
+            giúp họ có nhiều động lực sống
           </p>
-          <Link
+          <Link 
             to={"/user-select"}
             className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-900"
+            onFocus={handleLoginVoice}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +56,7 @@ function Home() {
                 d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
               />
             </svg>
-            <span className="text-white text-3xl">Đăng nhập</span>
+            <span className="text-white text-3xl" >Đăng nhập</span>
           </Link>
         </div>
       </div>

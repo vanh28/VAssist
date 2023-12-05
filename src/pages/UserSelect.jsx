@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import User from "../components/User";
 import { RadioGroup } from "@headlessui/react";
 import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
+import ChooseUser from "../assets/mp3/ChooseUser.mp3";
 const accounts = [
   {
     id: "374ed1e4-481b-4074-a26e-6137657c6e35",
@@ -14,14 +15,17 @@ const accounts = [
     fullName: "Vu Quang Hai",
     picture: "Hai/Hai.jpg",
   },
-  {
-    id: "0c2f5599-9296-4f94-97d5-e773043188ae",
-    fullName: "Emily Martinez",
-    picture: "/0c2f5599-9296-4f94-97d5-e773043188ae/1.jpg",
-  },
 ];
 
 function UserSelect() {
+  const handleAudio = () => {
+    const audio = new Audio(ChooseUser);
+    audio.play();
+  };
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   const [selected, setSelected] = useState(accounts[0]);
   const [customUser, setCustomUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -40,6 +44,10 @@ function UserSelect() {
       };
     });
   };
+  const handleName = (name) => {
+    console.log(name);
+
+  }
 
   return (
     <div className="h-full flex flex-col items-center justify-center gap-[24px] w-full max-w-[720px] mx-auto">
@@ -48,12 +56,13 @@ function UserSelect() {
         <div className="mx-auto w-full max-w-md">
           <RadioGroup value={selected} onChange={setSelected}>
             <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-            <div className="space-y-2">
+            <div className="space-y-2" >
               {accounts.map((account) => (
                 <User key={account.id} user={account} />
               ))}
+              
               {customUser && (
-                <div className="relative">
+                <div className="relative" onFocus={handleName(customUser.fullName)}>
                   <User key={customUser.id} user={customUser} type="CUSTOM" />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +74,10 @@ function UserSelect() {
                     onClick={() => {
                       setCustomUser(null);
                       selected?.type === "CUSTOM" && setSelected(accounts[0]);
+                    
                     }}
+                    onFocus = {handleName(accounts[0].fullName)}
+                  
                   >
                     <path
                       strokeLinecap="round"
@@ -119,17 +131,17 @@ function UserSelect() {
                     let file = files[0];
                     let name = file.name;
                     let suffixArr = name.split("."),
-                      suffix = suffixArr[suffixArr.length - 1];
+                    suffix = suffixArr[suffixArr.length - 2];
                     
 
                     const base64 = await convertBase64(file);
 
                     const user = {
                       id: "custom",
-                      fullName: name,
+                      fullName: suffix,
                       type: "CUSTOM",
                       picture: base64,
-                    }
+                    };
                     setCustomUser(user);
                     setSelected(user);
                   }}

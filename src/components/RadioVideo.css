@@ -1,0 +1,9 @@
+.news_container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mỗi hàng chỉ có 1 cột */
+  gap: 10px; /* Khoảng cách giữa các thẻ */
+}
+
+.news_book {
+  /* Thiết lập kiểu card của bạn */
+}

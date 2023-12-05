@@ -3,8 +3,22 @@ import * as faceapi from "face-api.js";
 import AuthIdle from "../assets/images/auth-idle.svg";
 import AuthFace from "../assets/images/auth-face.svg";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-
+import LoadModel from "../assets/mp3/LoadModel.mp3";
+import LoadModelSuccess from "../assets/mp3/LoadModelSuccess.mp3";
+import FaceReg from "../assets/mp3/FaceReg.mp3";
 function Login() {
+  const handleAudio = () => { 
+    const audio = new Audio(LoadModel);
+    audio.play();
+  }
+  const handleSuccessAudio = () => { 
+    const audio = new Audio(LoadModelSuccess);
+    audio.play();
+  }
+
+  useEffect(() => {
+    handleAudio();
+  }, []);
   const [tempAccount, setTempAccount] = useState("");
   const [localUserStream, setLocalUserStream] = useState(null);
   const [modelsLoaded, setModelsLoaded] = useState(false);
@@ -178,6 +192,21 @@ function Login() {
     );
   }
 
+  const handleVoiceLoadModel = () => { 
+    const audio = new Audio(LoadModelSuccess);
+    audio.play();
+  }
+  const handleVoiceOnFocus = () => { 
+    const audio = new Audio(FaceReg);
+    audio.play();
+  }
+  const [isSpeaked, setIsSpeaked] = useState(false);
+  if (modelsLoaded ){
+    if (!isSpeaked){
+    handleVoiceLoadModel();
+    setIsSpeaked(true);
+    }
+  }
   return (
     <div className="h-full flex flex-col items-center justify-center gap-[24px] max-w-[720px] mx-auto">
       {!localUserStream && !modelsLoaded && (
@@ -189,7 +218,7 @@ function Login() {
         </h2>
       )}
       {!localUserStream && modelsLoaded && (
-        <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl" onFocus={handleVoiceOnFocus}>
           <span className="block text-blue-900 mt-2">
             Nhận diện khuôn mặt để đăng nhập
           </span>
@@ -249,6 +278,7 @@ function Login() {
                   onClick={getLocalUserVideo}
                   type="button"
                   className="flex justify-center items-center w-full py-2.5 px-5 mr-2 text-sm font-medium text-white bg-blue-900 hover:bg-blue-900 rounded-lg border border-gray-200 inline-flex items-center"
+                  onFocus={handleVoiceOnFocus}
                 >
                   Nhận diện khuôn mặt
                 </button>
