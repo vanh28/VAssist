@@ -9,15 +9,12 @@ import SpeechReg from '../components/SpeechReg';
 import { NavBarNews } from '../components/NavBarNews';
 import VolumeSetting from '../components/Volume';
 import Allbooks from '../components/Allbooks';
-
+import BookAudio from '../assets/mp3/BookSpeak.mp3';
 
 function Books() {
   const handleAudio = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is News.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(BookAudio);
+    audio.play();
   }
 
   useEffect(() => {

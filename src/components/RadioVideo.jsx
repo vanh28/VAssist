@@ -10,13 +10,14 @@ import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import "./Article.css"
 import { useState, useRef } from 'react';
-  
+import song from "../assets/mp3/song.mp3";
 function RadioVideo({ video }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
   const handlePlayAudio = () => {
     if (!audioRef.current) {
       audioRef.current = new Audio(video.audioUrl);
+      
     }
 
     if (!isPlaying) {
@@ -26,6 +27,11 @@ function RadioVideo({ video }) {
       audioRef.current.pause();
       setIsPlaying(false);
     }
+
+    // audioRef.current = new Audio(song);
+    // console.log(audioRef.current);
+    // audioRef.current.play();
+
   };
 
   const handleAudio = () => {
@@ -57,7 +63,10 @@ function RadioVideo({ video }) {
       </CardActions>
       <CardContent className="border-spacing-0">
         <Typography gutterBottom variant="h5" component="div" style={{ color: '#133c8b', fontWeight: 'bold' }}>
-          {video.title}
+          {video.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {video.auther}
         </Typography>
         <Typography
           gutterBottom
@@ -66,11 +75,9 @@ function RadioVideo({ video }) {
           align="right"
           className="italic"
         >
-          Ngày đăng: {video.date}
+          {/* {video.date} */}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {video.description}
-        </Typography>
+        
       </CardContent>
     </div>
   );
