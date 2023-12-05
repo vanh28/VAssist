@@ -15,8 +15,9 @@ import Profile from "./pages/Profile";
 import Music from "./pages/Music";
 import Videocall from "./pages/Videocall";
 import Sports from "./pages/Sports";
-import Climate from "./pages/Climate";
 import Education from "./pages/Education";
+import Books from "./pages/Books";
+import Radio from "./pages/Radio";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -27,12 +28,12 @@ const router = createBrowserRouter(
         <Route path="/home-page" element={<Homepage />} />
         <Route path="/protected" element={<Protected />} />     
         <Route path="/news" element={<News />} />  
-        <Route path="/Music" element={<Music />} />
         <Route path="/Videocall" element={<Videocall />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/news/sports" element={<Sports />} />
-        <Route path="/news/climate" element={<Climate />} />
-        <Route path="/news/education" element={<Education />} />
+        <Route path="//Sports" element={<Sports />} />
+        <Route path="/Radio" element={<Radio />} />
+        <Route path="/Education" element={<Education />} />
+        <Route path="/Books" element={<Books />} />
         <Route path="*" element={<Navigate to="/" />} />
       {/* </Route> */}
     </>
