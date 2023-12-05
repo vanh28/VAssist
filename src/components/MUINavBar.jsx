@@ -48,14 +48,14 @@ export const MUINavBar = () => {
           />
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Button
+          <IconButton
             tabIndex={"-1"}
             color="inherit"
             onClick={navigateToHome}
             className="h-10"
           >
             <img src="src\assets\images\logoV.png" alt="" />
-          </Button>
+          </IconButton>
         </Typography>
         <Stack direction="row" spacing={2}>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToHome}>
