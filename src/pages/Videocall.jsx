@@ -8,12 +8,21 @@ import Container from "@mui/material/Container";
 import SpeechReg from "../components/SpeechReg";
 import { VideoRoom } from "../components/VideoRomm";
 import Call from "../assets/mp3/Call.mp3";
+import EnterToJoin from "../assets/mp3/EnterToJoin.mp3";
+import EnterToOut from "../assets/mp3/EnterToOut.mp3";
 function Videocall() {
   const handleAudio = () => {
     const audio = new Audio(Call);
     audio.play();
   };
-
+  const handleJoinAudio = () => {
+    const audio = new Audio(EnterToJoin);
+    audio.play();
+  };
+  const handleOutAudio = () => {
+    const audio = new Audio(EnterToOut);
+    audio.play();
+  };
   useEffect(() => {
     handleAudio();
   }, []);
@@ -56,6 +65,7 @@ function Videocall() {
               style={{ backgroundColor: "#1e3a8a" }}
               variant="contained"
               onClick={() => setJoined(true)}
+              onFocus = {handleJoinAudio}
             >
               Vào phòng
             </Button>
@@ -76,6 +86,7 @@ function Videocall() {
                 style={{ backgroundColor: "#1e3a8a" }}
                 variant="contained"
                 onClick={() => setJoined(false)}
+                onFocus={handleOutAudio}
               >
                 Rời phòng
               </Button>
