@@ -27,13 +27,16 @@ const SpeechReg = () => {
 
   const { transcript } = useSpeechRecognition({ commands });
   const [redirectUrl, setRedirectUrl] = useState("");
-  const pages = ["trang chủ", "tin tức", "thông tin", "gọi", "nghe nhạc"];
+  const pages = ["trang chủ", "thư viện nói", "tin tức", "sách nói", "học tập", "gọi", "nghe nhạc"];
   const urls = {
     "trang chủ": "/home-page",
+    "thư viện nói": "/news",
     "tin tức": "/news",
+    "sách nói": "/Books",
     "thông tin": "/protected",
-    gọi: "/Videocall",
-    "nghe nhạc": "/music",
+    "học tập": "/Education",
+    "gọi": "/Videocall",
+    "nghe nhạc": "/Radio",
   };
 
   function removeDotAtEnd(sentence) {

@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore/lite";
 import EducationVideo from "./EducationVideo";
-
+import edu from "../assets/edu.mp3";
+import edu1 from "../assets/edu1.mp3";
 import book8 from "../assets/book/book8.mp3";
 
   
@@ -17,14 +18,14 @@ import book8 from "../assets/book/book8.mp3";
             title: "Luyện Nghe 1",
             description: "Hello các bạn! Mình cảm thấy nhiều bạn gặp khó khăn khi nghe tiếng anh, mình muốn tạo ra những video không chỉ giúp các bạn phát âm chuẩn mà còn có thể giúp các bạn luyện nghe tốt hơn, mình sẽ tăng dần trình độ bài tập nghe cho các bạn qua mỗi video",
             author: "Kenny N",
-            audioUrl: "",
+            audioUrl: edu,
             urlToImage: "https://i.ytimg.com/vi/akXGSw7H49Y/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAqG_s65UrLxN4_uG3H6OGSFum5ww",
           },
           {
             title: "Luyện Nghe 2",
             description: "Hello các bạn! Mình cảm thấy nhiều bạn gặp khó khăn khi nghe tiếng anh, mình muốn tạo ra những video không chỉ giúp các bạn phát âm chuẩn mà còn có thể giúp các bạn luyện nghe tốt hơn, mình sẽ tăng dần trình độ bài tập nghe cho các bạn qua mỗi video",
             author: "Kenny N",
-            audioUrl: "",
+            audioUrl: edu1,
             urlToImage: "https://i.ytimg.com/vi/xr84aZ2zhOs/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCoC38Hdjz0tdYjA8GPMT9VDD2Piw",
           },
           {

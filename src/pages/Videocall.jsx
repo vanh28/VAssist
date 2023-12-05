@@ -57,7 +57,7 @@ function Videocall() {
               variant="contained"
               onClick={() => setJoined(true)}
             >
-              Join Room
+              Vào phòng
             </Button>
           </div>
         )}
@@ -77,7 +77,7 @@ function Videocall() {
                 variant="contained"
                 onClick={() => setJoined(false)}
               >
-                To Lobby
+                Rời phòng
               </Button>
             </div>
             <VideoRoom />
