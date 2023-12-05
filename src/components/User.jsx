@@ -4,11 +4,11 @@ function User({ user, type }) {
 
   const handleName = (name) => {
     console.log(name);
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance(name);
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    // if (!speechSynthesis.speaking) {
+    //   let utterance = new SpeechSynthesisUtterance(name);
+    //   utterance.lang = 'vi-VN';
+    //   speechSynthesis.speak(utterance);
+    // }
   }
   return (
     <RadioGroup.Option
