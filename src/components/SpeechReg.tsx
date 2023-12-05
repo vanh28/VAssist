@@ -1,70 +1,14 @@
-// import 'regenerator-runtime/runtime';
-// import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { BrowserRouter,Route,Link,redirect} from 'react-router-dom';
-// import Redirect from 'react-router-dom';
-// import SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
-
-// import './SpeechReg.css'; // Import the CSS file
-
-// const SpeechReg = () => {
-//   const navigate = useNavigate();
-  
-//   const commands = [
-//     {
-//       command: ["Go To *"],
-//       callback: (redirectPage: string) => setRedirectUrl(redirectPage),
-//     },
-//   ];
-
-//   const { transcript } = useSpeechRecognition({ commands });
-//   const [redirectUrl, setRedirectUrl] = useState('');
-//   const pages = ['home', 'news','profile'];
-//   const urls = {
-//       home:"/home-page",
-//       news:"/news",
-//       profile:"/profile",
-//   };
-
-//   function removeDotAtEnd(sentence) {
-//     if (sentence.endsWith('.')) {
-//       return sentence.slice(0, -1);
-//     }
-//     return sentence;
-//   }
-
-//   let string = removeDotAtEnd(redirectUrl.toLowerCase());
-//   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-//     return null;
-//   }
-//   let message ="";
-//   if (pages.includes(string)) {
-//     navigate(urls[string]);
-//   }else{
-//     // message = "Page not found";
-//   }
-//   return (
-//     <div className="card"> {/* Add the "card" class */}
-//       <p id="transcript">Transcript: {transcript}</p>
-//       <button onClick={() => SpeechRecognition.startListening()}> Start</button>
-//       <div>{message}</div>
-//     </div>
-//   );
-// };
-
-// export default SpeechReg;
-
-
-
-
-import 'regenerator-runtime/runtime';
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BrowserRouter,Route,Link,redirect} from 'react-router-dom';
-import Redirect from 'react-router-dom';
-import SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
-
-import './SpeechReg.css'; // Import the CSS file
+import "regenerator-runtime/runtime";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Link, redirect } from "react-router-dom";
+import Redirect from "react-router-dom";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
+import AudioNavigate from "../assets/mp3/NavigateByVoice.mp3";
+import "./SpeechReg.css"; // Import the CSS
+import { Modal } from "@mui/material";
 
 const SpeechReg = () => {
 
@@ -124,10 +68,16 @@ const SpeechReg = () => {
     }
     if (clickCount === 3) {
       setShowComponent(true);
+      handleAudioOpen();
       setClickCount(0);
       disableRightClick();
     }
   }, [clickCount]);
+
+  const handleAudioOpen = () => {
+    const audio = new Audio(AudioNavigate);
+    audio.play();
+  };
   const disableRightClick = () => {
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault();

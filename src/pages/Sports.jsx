@@ -10,14 +10,12 @@ import { NavBarNews } from '../components/NavBarNews';
 import VolumeSetting from '../components/Volume';
 import SportsVideos from '../components/SportsVideos';
 
+import Sport from '../assets/mp3/Sport.mp3';
 
 function Sports() {
   const handleAudio = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is for Sports.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(Sport);
+    audio.play();
   }
 
   useEffect(() => {

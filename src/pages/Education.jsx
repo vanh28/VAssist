@@ -7,15 +7,12 @@ import Container from '@mui/material/Container';
 import './News.css'
 import SpeechReg from '../components/SpeechReg';
 import { NavBarNews } from '../components/NavBarNews';
-
+import Education from '../assets/mp3/Education.mp3';
 
 function Education() {
   const handleAudio = () => { 
-    if (!speechSynthesis.speaking) {
-      let utterance = new SpeechSynthesisUtterance("This is News for education.");
-      utterance.lang = 'vi-VN';
-      speechSynthesis.speak(utterance);
-    }
+    const audio = new Audio(Education);
+    audio.play();
   }
 
   useEffect(() => {

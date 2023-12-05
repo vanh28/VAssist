@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-// import Layout from "./pages/Layout";
+import Layout from "./pages/Layout";
 import UserSelect from "./pages/UserSelect";
 import Protected from "./pages/Protected";
 import Homepage from "./pages/Homepage";

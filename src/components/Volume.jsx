@@ -1,12 +1,22 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import './SpeechReg.css';
-import song from '../assets/song.mp3';
+// Trong VolumeSetting.js
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  createContext,
+} from "react";
+import "./SpeechReg.css";
+import song from "../assets/mp3/song.mp3";
+import Article from "./Article";
+import VolumeSettingAudio from "../assets/mp3/SettingVolume.mp3";
+import { Modal } from "@mui/material";
 
+export const VolumeContext = createContext(40);
 const VolumeSetting = () => {
   const [showComponentVolume, setShowComponent] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const [timer, setTimer] = useState(null);
-
   const [isEnterPressed, setIsEnterPressed] = useState(false);
   const [volume, setVolume] = useState(() => {
     const savedVolume = localStorage.getItem('volume');
@@ -18,13 +28,12 @@ const VolumeSetting = () => {
     clearTimeout(timer);
     setTimer(setTimeout(() => setClickCount(0), 500));
   };
-
   const handleVolumeChange = (event) => {
     const newVolume = parseInt(event.target.value, 10);
     setVolume(newVolume);
     localStorage.setItem('volume', newVolume.toString());
     if (audioRef.current) {
-      audioRef.current.volume = newVolume / 100; // Update audio volume if the audio element exists
+      audioRef.current.volume = newVolume / 100;
     }
   };
 
@@ -54,10 +63,14 @@ const VolumeSetting = () => {
   useEffect(() => {
     if (clickCount === 3) {
       setShowComponent(true);
+      handleAudioOpen();
       setClickCount(0);
     }
   }, [clickCount]);
-
+  const handleAudioOpen = () => {
+    const audio = new Audio(VolumeSettingAudio);
+    audio.play();
+  };
   useEffect(() => {
     if (isEnterPressed && showComponentVolume) {
       handleSaveClick();
@@ -67,19 +80,25 @@ const VolumeSetting = () => {
 
   const handleSaveClick = () => {
     setShowComponent(false);
+    window.location.reload();
   };
 
   const audioRef = useRef(null);
 
   useEffect(() => {
     if (showComponentVolume && audioRef.current) {
-      audioRef.current.volume = volume / 100; // Update audio volume when component is shown
+      audioRef.current.volume = volume / 100;
     }
   }, [showComponentVolume, volume]);
-
+  // {console.log(volume)}
   return (
-    <>
-      {showComponentVolume && (
+    <VolumeContext.Provider value={volume}>
+      <Modal
+        open={showComponentVolume}
+        onClose={() => setShowComponent(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
         <div className="card">
           <button onClick={handleSaveClick}>Save</button>
           <input type="range" min={0} max={100} value={volume} onChange={handleVolumeChange} />
@@ -89,9 +108,12 @@ const VolumeSetting = () => {
             Your browser does not support the audio element.
           </audio>
         </div>
-      )}
-    </>
+      </Modal>
+    </VolumeContext.Provider>
   );
 };
-
+export const getVolumeFromLocalStorage = () => {
+  const savedVolume = localStorage.getItem("volume");
+  return savedVolume !== null ? parseInt(savedVolume, 10) : 50; // Default volume if not found in local storage
+};
 export default VolumeSetting;
