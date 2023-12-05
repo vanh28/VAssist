@@ -94,7 +94,7 @@ const VolumeSetting = () => {
         {showComponentVolume && (
           <div className="card">
             <button onClick={handleSaveClick}>Save</button>
-            <input type="range" min={0} max={100} value={volume} onChange={handleVolumeChange} />
+            <input type="range" min={0} max={100} value={volume} onChange={handleVolumeChange} autoFocus/>
             <p>Volume: {volume}</p>
             <audio autoPlay ref={audioRef}>
               <source src={song} type="audio/mpeg" />

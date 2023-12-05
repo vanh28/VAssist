@@ -4,6 +4,7 @@ import { MUINavBar } from "../components/MUINavBar";
 import SpeechReg from "../components/SpeechReg";
 import VolumeSetting from "../components/Volume";
 import LoginSuccess from "../assets/mp3/LoginSuccess.mp3";
+import EnterToLogout from "../assets/mp3/EnterToLogout.mp3";
 function Protected() {
   const handleAudio = () => { 
     const audio = new Audio(LoginSuccess);
@@ -33,7 +34,10 @@ function Protected() {
   if (!account) {
     return null;
   }
-
+  const handleAudioLogout = () => { 
+    const audio = new Audio(EnterToLogout);
+    audio.play();
+  }
   return (
     <div>
     <MUINavBar />
@@ -71,7 +75,7 @@ function Protected() {
             }}
             className="flex gap-2 mt-12 w-fit mx-auto cursor-pointer z-10 py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-900"
           >
-            <span className="text-white">Log Out</span>
+            <button className="text-white" onFocus={handleAudioLogout}>Log  Out</button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

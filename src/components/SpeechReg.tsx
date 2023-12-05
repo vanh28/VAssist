@@ -64,6 +64,8 @@ import { BrowserRouter,Route,Link,redirect} from 'react-router-dom';
 import Redirect from 'react-router-dom';
 import SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
 import AudioNavigate from '../assets/mp3/NavigateByVoice.mp3';
+import EnterToSpeech from '../assets/mp3/EnterToSpeech.mp3';
+import EnterToClose from '../assets/mp3/EnterToClose.mp3';
 import './SpeechReg.css'; // Import the CSS file
 
 const SpeechReg = () => {
@@ -131,6 +133,14 @@ const SpeechReg = () => {
     const audio = new Audio(AudioNavigate);
     audio.play();
   }
+  const handleAudioClose = () => { 
+    const audio = new Audio(EnterToClose);
+    audio.play();
+  }
+  const handleStartAudio = () => { 
+    const audio = new Audio(EnterToSpeech);
+    audio.play();
+  }
   const disableRightClick = () => {
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault();
@@ -160,8 +170,8 @@ const SpeechReg = () => {
       {showComponent && (
         <div className="card">
           <p id="transcript">Transcript: {transcript}</p>
-          <p><button onClick={() => SpeechRecognition.startListening()}> Start</button> </p>
-          <button  onClick={handleSaveClick}> Close</button>
+          <p><button onClick={() => SpeechRecognition.startListening()} onFocus={handleStartAudio}> Start</button> </p>
+          <button  onClick={handleSaveClick} onFocus={handleAudioClose}> Close</button>
         </div>
       )}
       {shouldRedirect && navigate(urls[string])}

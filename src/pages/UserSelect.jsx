@@ -49,6 +49,10 @@ function UserSelect() {
       };
     });
   };
+  const handleName = (name) => {
+    console.log(name);
+
+  }
 
   return (
     <div className="h-full flex flex-col items-center justify-center gap-[24px] w-full max-w-[720px] mx-auto">
@@ -57,12 +61,13 @@ function UserSelect() {
         <div className="mx-auto w-full max-w-md">
           <RadioGroup value={selected} onChange={setSelected}>
             <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-            <div className="space-y-2">
+            <div className="space-y-2" >
               {accounts.map((account) => (
                 <User key={account.id} user={account} />
               ))}
+              
               {customUser && (
-                <div className="relative">
+                <div className="relative" onFocus={handleName(customUser.fullName)}>
                   <User key={customUser.id} user={customUser} type="CUSTOM" />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +79,10 @@ function UserSelect() {
                     onClick={() => {
                       setCustomUser(null);
                       selected?.type === "CUSTOM" && setSelected(accounts[0]);
+                    
                     }}
+                    onFocus = {handleName(accounts[0].fullName)}
+                  
                   >
                     <path
                       strokeLinecap="round"
