@@ -19,7 +19,7 @@ const VolumeSetting = () => {
   const [timer, setTimer] = useState(null);
   const [isEnterPressed, setIsEnterPressed] = useState(false);
   const [volume, setVolume] = useState(() => {
-    const savedVolume = localStorage.getItem("volume");
+    const savedVolume = localStorage.getItem('volume');
     return savedVolume !== null ? parseInt(savedVolume, 10) : 50;
   });
 
@@ -31,29 +31,32 @@ const VolumeSetting = () => {
   const handleVolumeChange = (event) => {
     const newVolume = parseInt(event.target.value, 10);
     setVolume(newVolume);
-    localStorage.setItem("volume", newVolume.toString());
+    localStorage.setItem('volume', newVolume.toString());
     if (audioRef.current) {
       audioRef.current.volume = newVolume / 100;
     }
   };
 
-  const handleKeyPress = useCallback((e) => {
-    if (e.key === "Enter") {
-      setIsEnterPressed(true);
-    }
-  }, []);
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (e.key === 'Enter') {
+        setIsEnterPressed(true);
+      }
+    },
+    []
+  );
 
   useEffect(() => {
     const leftClickHandler = () => {
       handleLeftClick();
     };
 
-    window.addEventListener("click", leftClickHandler);
-    window.addEventListener("keypress", handleKeyPress);
+    window.addEventListener('click', leftClickHandler);
+    window.addEventListener('keypress', handleKeyPress);
 
     return () => {
-      window.removeEventListener("click", leftClickHandler);
-      window.removeEventListener("keypress", handleKeyPress);
+      window.removeEventListener('click', leftClickHandler);
+      window.removeEventListener('keypress', handleKeyPress);
     };
   }, [handleKeyPress]);
 

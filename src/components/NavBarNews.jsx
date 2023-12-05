@@ -1,53 +1,39 @@
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Button,
-  InputBase,
-  alpha,
-} from "@mui/material";
-import React, { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Stack } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Button, InputBase, alpha } from '@mui/material';
+import React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Stack } from '@mui/material';
 import { Link, useNavigate } from "react-router-dom";
 
 export const NavBarNews = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useNavigate();
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+    function navigateToRadio(e) {
+        e.preventDefault()
+        navigate("/Radio")
+    }
 
-  const navigate = useNavigate();
+    function navigateToBooks(e) {
+        e.preventDefault()
+        navigate("/Books")
+    }   
 
-  function navigateToTrend(e) {
-    e.preventDefault();
-    navigate("/trending");
-  }
+    function navigateToSports(e) {
+        e.preventDefault()
+        navigate("/Sports")
+    }
 
-  function navigateToBooks(e) {
-    e.preventDefault();
-    navigate("/Books");
-  }
+    function navigateToEducation(e) {
+        e.preventDefault()
+        navigate("/Education")
+    }
 
-  function navigateToClimate(e) {
-    e.preventDefault();
-    navigate("/climate");
-  }
+    function navigateToNews(e) {
+        e.preventDefault()
+        navigate("/news")
+    }
 
-  function navigateToEducation(e) {
-    e.preventDefault();
-    navigate("/education");
-  }
-
-  function navigateToNews(e) {
-    e.preventDefault();
-    navigate("/news");
-  }
-
-  return (
-    <AppBar
+    return (
+      <AppBar
       position="static"
       // sx={{ backgroundColor: "#1e6f8a" }}
       color="info"
@@ -80,7 +66,6 @@ export const NavBarNews = () => {
             },
             p: "8px 12px",
           }}
-          className="right-60"
         />
         {/* End of search bar */}
         <Stack direction="row" spacing={2}>
@@ -90,14 +75,17 @@ export const NavBarNews = () => {
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToBooks}>
             Sách nói
           </Button>
-          <Button tabIndex={"-1"} color="inherit" onClick={navigateToClimate}>
-            Thời tiết
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToSports}>
+            Thể dục
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToEducation}>
             Học tập
           </Button>
+          <Button tabIndex={"-1"} color="inherit" onClick={navigateToRadio}>
+            Radio
+          </Button>
         </Stack>
       </Toolbar>
     </AppBar>
-  );
+    );
 };
