@@ -9,7 +9,7 @@
 
 // const SpeechReg = () => {
 //   const navigate = useNavigate();
-
+  
 //   const commands = [
 //     {
 //       command: ["Go To *"],
@@ -54,24 +54,25 @@
 
 // export default SpeechReg;
 
-import "regenerator-runtime/runtime";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { BrowserRouter, Route, Link, redirect } from "react-router-dom";
-import Redirect from "react-router-dom";
-import SpeechRecognition, {
-  useSpeechRecognition,
-} from "react-speech-recognition";
 
-import "./SpeechReg.css"; // Import the CSS file
-import { Modal } from "@mui/material";
+
+
+import 'regenerator-runtime/runtime';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BrowserRouter,Route,Link,redirect} from 'react-router-dom';
+import Redirect from 'react-router-dom';
+import SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
+
+import './SpeechReg.css'; // Import the CSS file
 
 const SpeechReg = () => {
+
   const navigate = useNavigate();
   const [clickCount, setClickCount] = useState(0);
   const [showComponent, setShowComponent] = useState(false);
   const [shouldRedirect, setShouldRedirect] = useState(false);
-
+  
   const commands = [
     {
       command: ["đi đến *"],
@@ -80,24 +81,28 @@ const SpeechReg = () => {
   ];
 
   const { transcript } = useSpeechRecognition({ commands });
-  const [redirectUrl, setRedirectUrl] = useState("");
-  const pages = ["trang chủ", "tin tức", "thông tin", "gọi", "nghe nhạc"];
+  const [redirectUrl, setRedirectUrl] = useState('');
+  const pages = ['trang chủ', 'tin tức', 'thông tin','xã hội','sách nói', 'thể dục', 'học tập', 'radio'];
   const urls = {
     "trang chủ": "/home-page",
     "tin tức": "/news",
     "thông tin": "/protected",
-    gọi: "/Videocall",
-    "nghe nhạc": "/music",
+    "xã hội": "/Videocall",
+    "sách nói": "/Books",
+    "thể dục" : "/Sports",
+    "học tập" : "/Education",
+    "radio" : "/Radio",
   };
 
   function removeDotAtEnd(sentence) {
-    if (sentence.endsWith(".")) {
+    if (sentence.endsWith('.')) {
       return sentence.slice(0, -1);
     }
     return sentence;
   }
 
   const handleRightClick = () => {
+    
     setClickCount((prevCount) => prevCount + 1);
   };
 
@@ -106,10 +111,10 @@ const SpeechReg = () => {
       handleRightClick();
     };
 
-    window.addEventListener("contextmenu", rightClickHandler);
+    window.addEventListener('contextmenu', rightClickHandler);
 
     return () => {
-      window.removeEventListener("contextmenu", rightClickHandler);
+      window.removeEventListener('contextmenu', rightClickHandler);
     };
   }, [clickCount]);
 
@@ -124,20 +129,23 @@ const SpeechReg = () => {
     }
   }, [clickCount]);
   const disableRightClick = () => {
-    window.addEventListener("contextmenu", (e) => {
+    window.addEventListener('contextmenu', (e) => {
       e.preventDefault();
     });
   };
   let string = "";
 
   if (showComponent) {
+    
     string = removeDotAtEnd(redirectUrl.toLowerCase());
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
       return;
     }
     if (pages.includes(string)) {
       setShouldRedirect(true);
+
     } else {
+      
     }
   }
   const handleSaveClick = () => {
@@ -146,28 +154,13 @@ const SpeechReg = () => {
 
   return (
     <>
-      <Modal
-        open={showComponent}
-        onClose={() => setShowComponent(false)}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      {showComponent && (
         <div className="card">
-          <div className="text-center my-4">
-            <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500">
-              VSpeak
-            </div>
-          </div>
           <p id="transcript">Transcript: {transcript}</p>
-          <p>
-            <button onClick={() => SpeechRecognition.startListening()}>
-              {" "}
-              Start
-            </button>{" "}
-          </p>
-          <button onClick={handleSaveClick}> Close</button>
+          <p><button onClick={() => SpeechRecognition.startListening()}> Start</button> </p>
+          <button  onClick={handleSaveClick}> Close</button>
         </div>
-      </Modal>
+      )}
       {shouldRedirect && navigate(urls[string])}
     </>
   );
