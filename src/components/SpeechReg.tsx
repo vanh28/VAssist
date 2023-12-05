@@ -64,8 +64,7 @@
 // import Redirect from 'react-router-dom';
 // import SpeechRecognition ,{ useSpeechRecognition } from 'react-speech-recognition';
 // import AudioNavigate from '../assets/mp3/NavigateByVoice.mp3';
-// import EnterToSpeech from '../assets/mp3/EnterToSpeech.mp3';
-// import EnterToClose from '../assets/mp3/EnterToClose.mp3';
+
 // import './SpeechReg.css'; // Import the CSS file
 
 import "regenerator-runtime/runtime";
@@ -77,6 +76,8 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import AudioNavigate from "../assets/mp3/NavigateByVoice.mp3";
+import EnterToSpeech from '../assets/mp3/EnterToSpeech.mp3';
+import EnterToClose from '../assets/mp3/EnterToClose.mp3';
 import "./SpeechReg.css"; // Import the CSS
 import { Modal } from "@mui/material";
 
@@ -186,14 +187,14 @@ const SpeechReg = () => {
               VSpeak
             </div>
           </div>
-          <p id="transcript">Transcript: {transcript}</p>
+          <p id="transcript">Nội dung: {transcript}</p>
           <p>
-            <button onClick={() => SpeechRecognition.startListening()}>
+            <button onClick={() => SpeechRecognition.startListening()} onFocus={handleStartAudio}>
               {" "}
-              Start
+              Bắt đầu
             </button>{" "}
           </p>
-          <button onClick={handleSaveClick}> Close</button>
+          <button onClick={handleSaveClick} onFocus={handleAudioClose}> Đóng</button>
         </div>
       </Modal>
       {shouldRedirect && navigate(urls[string])}

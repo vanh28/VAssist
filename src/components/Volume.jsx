@@ -98,15 +98,16 @@ const VolumeSetting = () => {
       >
         <div className="card">
           <div className="font-semibold">Thay đổi âm</div>
-          <button onClick={handleSaveClick}>Save</button>
+          <button onClick={handleSaveClick}>Lưu</button>
           <input
             type="range"
             min={0}
             max={100}
             value={volume}
             onChange={handleVolumeChange}
+            autoFocus
           />
-          <p>Volume: {volume}</p>
+          <p>Âm lượng: {volume}</p>
           <audio autoPlay ref={audioRef}>
             <source src={song} type="audio/mpeg" />
             Your browser does not support the audio element.
