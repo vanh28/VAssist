@@ -54,6 +54,7 @@ export const NavBarNews = () => {
         ></Typography>
         {/* Search bar */}
         <InputBase
+          tabIndex={"-1"}
           placeholder="Search..."
           sx={{
             color: "inherit",
@@ -74,9 +75,6 @@ export const NavBarNews = () => {
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToBooks}>
             Sách nói
-          </Button>
-          <Button tabIndex={"-1"} color="inherit" onClick={navigateToSports}>
-            Thể dục
           </Button>
           <Button tabIndex={"-1"} color="inherit" onClick={navigateToEducation}>
             Học tập
