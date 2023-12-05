@@ -100,9 +100,17 @@ const VolumeSetting = () => {
         aria-describedby="modal-modal-description"
       >
         <div className="card">
-          <button onClick={handleSaveClick}>Save</button>
-          <input type="range" min={0} max={100} value={volume} onChange={handleVolumeChange} />
-          <p>Volume: {volume}</p>
+          <div className="font-semibold">Thay đổi âm</div>
+          <button onClick={handleSaveClick}>Lưu</button>
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={volume}
+            onChange={handleVolumeChange}
+            autoFocus
+          />
+          <p>Âm lượng: {volume}</p>
           <audio autoPlay ref={audioRef}>
             <source src={song} type="audio/mpeg" />
             Your browser does not support the audio element.
