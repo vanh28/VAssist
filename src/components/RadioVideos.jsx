@@ -10,17 +10,6 @@ import ChieuHomAy from "../assets/mp3/ChieuHomAy.mp3";
 import ConMuaNgangQua from "../assets/mp3/ConMuaNgangQua.mp3";
 import LacTroi from "../assets/mp3/LacTroi.mp3";
 import Thang4 from "../assets/mp3/Thang4LaLoiNoiDoiCuaEm.mp3";
-// const [articles, setArticles] = useState([]);
-
-// useEffect(() => {
-//   const getArticles = async () => {
-//   const articlesCol = collection(db, 'books');
-//   const articleSnapshot = await getDocs(articlesCol);
-//   const articles = articleSnapshot.docs.map(doc => doc.data());
-//   setArticles(articles);
-// };
-//   getArticles();
-// }, []);
 
 const RadioVideos = () => {
   const articles = [

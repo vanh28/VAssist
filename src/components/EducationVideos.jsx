@@ -47,7 +47,7 @@ import book8 from "../assets/book/book8.mp3";
       const url = 'https://api.fpt.ai/hmi/tts/v5';
       const headers = new Headers({
         'Content-Type': 'application/json',
-        'api-key': 'cYJkfDYru4Ad9MiDWoa8LO5b9HkG6S9x',
+        'api-key': 'u6PXADUPP0luylzHNLJaVYYN1kT7ltP7',
         'speed': '',
         'voice': 'banmai',
       });
